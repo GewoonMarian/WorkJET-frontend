@@ -1,11 +1,11 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
-import { fechedUsers } from "./slice";
-import { User } from "../../types";
+import { fechedNews } from "./slice";
+import { News } from "../../types";
 import { AnyAction, Dispatch, ThunkAction } from "@reduxjs/toolkit";
 
 // Get the users
-export const fetchUsers = (): ThunkAction<
+export const fetchNews = (): ThunkAction<
   Promise<void>,
   any,
   any,
@@ -13,9 +13,9 @@ export const fetchUsers = (): ThunkAction<
 > => {
   return async (dispatch: Dispatch<AnyAction>): Promise<void> => {
     try {
-      const { data }: { data: User[] } = await axios.get(`${apiUrl}/users`);
+      const { data }: { data: News[] } = await axios.get(`${apiUrl}/news`);
 
-      dispatch(fechedUsers(data));
+      dispatch(fechedNews(data));
     } catch (error) {
       console.log(error);
     }

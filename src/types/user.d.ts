@@ -1,4 +1,5 @@
 export interface User {
+  id: Key | null | undefined;
   name: string;
   email: string;
   location: string;

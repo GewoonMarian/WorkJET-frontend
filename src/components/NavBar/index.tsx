@@ -9,12 +9,12 @@ export default function NavBar() {
       <div>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Container>
-            <Navbar.Brand href="#home">Growth</Navbar.Brand>
+            <Navbar.Brand href="/">Growth</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link href="/users">Users</Nav.Link>
-                <Nav.Link href="#pricing">Pricing</Nav.Link>
+                <Nav.Link href="/users">Developers</Nav.Link>
+                <Nav.Link href="/recruiters">Recruiters</Nav.Link>
                 <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                   <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.2">
@@ -30,9 +30,9 @@ export default function NavBar() {
                 </NavDropdown>
               </Nav>
               <Nav>
-                <Nav.Link href="#deets">More deets</Nav.Link>
-                <Nav.Link eventKey={2} href="#memes">
-                  Dank memes
+                <Nav.Link href="logIn">LogIn</Nav.Link>
+                <Nav.Link eventKey={2} href="/signup">
+                  Signup
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>

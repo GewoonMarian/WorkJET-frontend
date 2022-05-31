@@ -29,7 +29,7 @@ export default function UsersPage() {
                       className="card"
                       style={{
                         backgroundColor: "transparent",
-                        boxShadow: "5px 40px 60px #ffffff",
+                        boxShadow: "5px 40px 60px #000000",
                       }}
                     >
                       <div className="card-body">

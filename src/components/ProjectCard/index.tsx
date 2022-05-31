@@ -1,10 +1,9 @@
-import { News } from "../../types/news";
-
-export default function NewsCard(props: News) {
+import { Project } from "../../types/project";
+export default function ProjectCard(props: Project) {
   return (
     <div>
       <h1>
-        <strong>{props.title}</strong>
+        <strong>{props.name}</strong>
       </h1>
 
       <a href={props.linkUrl}>
@@ -17,9 +16,6 @@ export default function NewsCard(props: News) {
         </button>
       </a>
 
-      <div>
-        <img src={props.imageUrl} alt="" width="600px" />
-      </div>
       <p>
         <strong>{props.description}</strong>
       </p>

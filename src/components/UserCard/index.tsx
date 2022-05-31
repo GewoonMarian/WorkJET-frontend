@@ -4,13 +4,13 @@ export default function UserCard(props: User) {
   return (
     <div>
       <p>
-        Name: <strong>{props.name}</strong>
+        <strong>{props.name}</strong>
       </p>
       <p>
-        Email: <strong>{props.email}</strong>
+        <strong>{props.email}</strong>
       </p>
       <p>
-        Location: <strong>{props.location}</strong>
+        <strong>{props.location}</strong>
       </p>
       <p>
         Available: <strong>{props.isAvailable}</strong>
@@ -18,9 +18,8 @@ export default function UserCard(props: User) {
       <div>
         <img src={props.imageUrl} alt="" width="200px" />
       </div>
-      <p>
-        Description: <strong>{props.description}</strong>
-      </p>
+      <p>{/* <strong>{props.description}</strong> */}</p>
+      <p>{props.projects}</p>
     </div>
   );
 }

@@ -6,4 +6,15 @@ export interface User {
   isAvailable: boolean;
   imageUrl: string;
   description: string;
+  projects: Project;
 }
+
+// export const User: User = {
+//   projects: {
+//     id: Key | null | undefined,
+//     name: string,
+
+//     linkUrl: string,
+//     description: string,
+//   },
+// };

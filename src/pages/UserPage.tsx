@@ -36,7 +36,7 @@ export default function UsersPage() {
               return (
                 <div
                   className="container d-flex flex-row"
-                  style={{ paddingTop: "2%" }}
+                  style={{ paddingTop: "5%" }}
                 >
                   <div className="col-sm-6">
                     <div

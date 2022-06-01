@@ -1,7 +1,7 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
-import { fechedUsers, fechedProjects } from "./slice";
-import { User, Project } from "../../types";
+import { fechedUsers, signUpSuccess } from "./slice";
+import { User } from "../../types";
 import { AnyAction, Dispatch, ThunkAction } from "@reduxjs/toolkit";
 
 // Get the users
@@ -22,22 +22,27 @@ export const fetchUsers = (): ThunkAction<
   };
 };
 
-export const fetchProjects = (): ThunkAction<
-  Promise<void>,
-  any,
-  any,
-  AnyAction
-> => {
+// SignUp
+export const signUp = (
+  name: string,
+  email: string,
+  password: string
+): ThunkAction<Promise<void>, any, any, AnyAction> => {
   return async (dispatch: Dispatch<AnyAction>): Promise<void> => {
     try {
-      const { data }: { data: Project[] } = await axios.get(
-        `${apiUrl}/projects`
+      const { response }: { response: User[] } = await axios.post(
+        `${apiUrl}/users/signup`,
+        {
+          name,
+          email,
+          password,
+        }
       );
-      console.log("Project", data);
-
-      dispatch(fechedProjects(data));
+      dispatch(signUpSuccess(response));
     } catch (error) {
-      console.log(error);
+      if (error) {
+        console.log(error);
+      }
     }
   };
 };

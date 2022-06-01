@@ -6,7 +6,8 @@ export interface User {
   isAvailable: boolean;
   imageUrl: string;
   description: string;
-  projects: Project;
+  projects: Project[];
+  certifications: Certification[];
 }
 
 // export const User: User = {

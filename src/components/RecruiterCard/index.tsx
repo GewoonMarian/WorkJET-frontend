@@ -1,4 +1,5 @@
 import { Recruiter } from "../../types";
+import Badge from "react-bootstrap/Badge";
 
 export default function RecruiterCard(props: Recruiter) {
   return (
@@ -14,7 +15,7 @@ export default function RecruiterCard(props: Recruiter) {
       </p>
       <p>
         Recruiting:
-        <strong style={{ color: "red" }}>{props.isRecruting!}!</strong>
+        <Badge bg="success">{props.isRecruting ? "TRUE" : "FALSE"}</Badge>
       </p>
       <div>
         <img src={props.imageUrl} alt="" width="200px" />

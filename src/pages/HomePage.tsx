@@ -5,16 +5,14 @@ import { AppDispatch } from "../store";
 import { fetchNews } from "../store/news/actions";
 import { selectNews } from "../store/news/selectors";
 import { News } from "../types";
-// import "./home.css";
 
 export default function UsersPage() {
   const dispatch: AppDispatch = useDispatch();
   const news = useSelector(selectNews);
-  console.log("users", news);
 
   useEffect(() => {
     dispatch(fetchNews());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>

@@ -1,5 +1,66 @@
-import React from "react";
+import React, { Component } from "react";
+export default class SignUp extends Component {
+  render() {
+    return (
+      <form>
+        <div
+          className="Container"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div
+            className="card "
+            style={{
+              width: "40rem",
+              backgroundColor: "transparent",
+              boxShadow: "5px 40px 60px #000000",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <div className="card-body">
+              <h3>Sign Up</h3>
+              <div className="mb-3">
+                <label>Name</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Name"
+                />
+              </div>
 
-export default function SignUp() {
-  return <div>SignUp</div>;
+              <div className="mb-3">
+                <label>Email address</label>
+                <input
+                  type="email"
+                  className="form-control"
+                  placeholder="Enter email"
+                />
+              </div>
+              <div className="mb-3">
+                <label>Password</label>
+                <input
+                  type="password"
+                  className="form-control"
+                  placeholder="Enter password"
+                />
+              </div>
+              <div className="d-grid">
+                <button type="submit" className="btn btn-primary">
+                  Sign Up
+                </button>
+              </div>
+              <p className="forgot-password text-right">
+                Already registered <a href="/logIn">sign in?</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </form>
+    );
+  }
 }

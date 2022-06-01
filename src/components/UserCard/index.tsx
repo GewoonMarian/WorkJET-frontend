@@ -1,3 +1,4 @@
+import { Badge } from "react-bootstrap";
 import { User } from "../../types/user";
 
 export default function UserCard(props: User) {
@@ -13,13 +14,13 @@ export default function UserCard(props: User) {
         <strong>{props.location}</strong>
       </p>
       <p>
-        Available: <strong>{props.isAvailable}</strong>
+        Available:
+        <Badge bg="success">{props.isAvailable ? "TRUE" : "FALSE"}</Badge>
       </p>
+
       <div>
         <img src={props.imageUrl} alt="" width="200px" />
       </div>
-      <p>{/* <strong>{props.description}</strong> */}</p>
-      <p>{props.projects}</p>
     </div>
   );
 }

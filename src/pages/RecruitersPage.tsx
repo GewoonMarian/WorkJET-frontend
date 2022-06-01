@@ -14,10 +14,16 @@ export default function RecruitersPage() {
 
   useEffect(() => {
     dispatch(fetchRecruiters());
-  }, []);
+  }, [dispatch]);
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <div>
         <h1>Recruiters Page</h1>
         {recruiters
@@ -40,6 +46,7 @@ export default function RecruitersPage() {
                       className="d-flex flex-row"
                       style={{
                         width: "60rem",
+                        height: "20rem",
                         backgroundColor: "#212529",
                         boxShadow: "5px 40px 60px #26ff04",
                         color: "#52be67",
@@ -51,11 +58,18 @@ export default function RecruitersPage() {
                         email={recruiter.email}
                         location={recruiter.location}
                         imageUrl={recruiter.imageUrl}
-                        isRecruting={recruiter.isRecruting ? false : true}
+                        isRecruting={recruiter.isRecruting}
                         jobDescription={""}
                       />
-                      {/* {recruiter.isRecruting ? "red" : "false"} */}
-                      <div>{recruiter.jobDescription}</div>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        {recruiter.jobDescription}
+                      </div>
                     </div>
                   </div>
                 </div>

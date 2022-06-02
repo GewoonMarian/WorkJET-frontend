@@ -8,12 +8,14 @@ import { User } from "../types";
 import ProjectCard from "../components/UserCard/project";
 import Button from "react-bootstrap/Button";
 import CertificationCard from "../components/UserCard/Certification";
+import SkillCard from "../components/UserCard/skills";
 
 export default function UsersPage() {
   const dispatch: AppDispatch = useDispatch();
   const users = useSelector(selectUsers);
   const [projectOpen, setProjectOpen]: any = useState();
   const [certificationOpen, setCertificationOpen]: any = useState();
+  const [skillOpen, setSkillOpen]: any = useState();
 
   console.log("users", users);
 
@@ -59,6 +61,7 @@ export default function UsersPage() {
                         description={user.description}
                         projects={[]}
                         certifications={[]}
+                        skills={[]}
                       />
 
                       <div
@@ -99,6 +102,7 @@ export default function UsersPage() {
                                       description={""}
                                       projects={[]}
                                       certifications={user.certifications}
+                                      skills={[]}
                                     />
                                   </div>
                                 )}
@@ -123,6 +127,31 @@ export default function UsersPage() {
                                       description={""}
                                       projects={user.projects}
                                       certifications={[]}
+                                      skills={[]}
+                                    />
+                                  </div>
+                                )}
+                              </div>
+                              <div>
+                                <Button
+                                  variant="outline-success"
+                                  onClick={() => setSkillOpen(!skillOpen)}
+                                >
+                                  Skills
+                                </Button>
+                                {skillOpen && (
+                                  <div>
+                                    <SkillCard
+                                      id={undefined}
+                                      name={""}
+                                      email={""}
+                                      location={""}
+                                      isAvailable={false}
+                                      imageUrl={""}
+                                      description={""}
+                                      projects={[]}
+                                      certifications={[]}
+                                      skills={user.skills}
                                     />
                                   </div>
                                 )}

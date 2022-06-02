@@ -11,6 +11,7 @@ export default function SignUp() {
   const dispatch: AppDispatch = useDispatch();
   // const token = useSelector(selectToken);
   const navigate = useNavigate();
+  // console.log("token", token);
 
   // useEffect(() => {
   //   if (token !== null) {
@@ -18,7 +19,7 @@ export default function SignUp() {
   //   }
   // }, [token, navigate]);
 
-  function submitForm(event: FormEvent): void {
+  function submitForm(event: any) {
     event.preventDefault();
 
     dispatch(signUp(name, email, password));
@@ -29,73 +30,75 @@ export default function SignUp() {
   }
   return (
     <form>
-      <div
-        className="Container"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+      <div>
         <div
-          className="card "
+          className="Container"
           style={{
-            width: "40rem",
-            backgroundColor: "transparent",
-            boxShadow: "5px 40px 60px #000000",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
           }}
         >
-          <div className="card-body">
-            <h3>Sign Up</h3>
-            <div className="mb-3">
-              <label>Name</label>
-              <input
-                type="text"
-                className="form-control"
-                value={name}
-                onChange={(event) => setName(event.target.value)}
-                placeholder="Enter name"
-                required
-              />
-            </div>
+          <div
+            className="card "
+            style={{
+              width: "40rem",
+              backgroundColor: "transparent",
+              boxShadow: "5px 40px 60px #000000",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <div className="card-body">
+              <h3>Sign Up</h3>
+              <div className="mb-3">
+                <label>Name</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={name}
+                  onChange={(event) => setName(event.target.value)}
+                  placeholder="Enter name"
+                  required
+                />
+              </div>
 
-            <div className="mb-3">
-              <label>Email address</label>
-              <input
-                type="email"
-                className="form-control"
-                placeholder="Enter email"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                required
-              />
+              <div className="mb-3">
+                <label>Email address</label>
+                <input
+                  type="email"
+                  className="form-control"
+                  placeholder="Enter email"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <label>Password</label>
+                <input
+                  type="password"
+                  className="form-control"
+                  placeholder="Enter password"
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
+                  required
+                />
+              </div>
+              <div className="d-grid">
+                <button
+                  type="submit"
+                  className="btn btn-primary"
+                  onClick={submitForm}
+                >
+                  Sign Up
+                </button>
+              </div>
+              <p>
+                Already registered <a href="/logIn">sign in?</a>
+              </p>
             </div>
-            <div className="mb-3">
-              <label>Password</label>
-              <input
-                type="password"
-                className="form-control"
-                placeholder="Enter password"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-                required
-              />
-            </div>
-            <div className="d-grid">
-              <button
-                type="submit"
-                className="btn btn-primary"
-                onClick={submitForm}
-              >
-                Sign Up
-              </button>
-            </div>
-            <p>
-              Already registered <a href="/logIn">sign in?</a>
-            </p>
           </div>
         </div>
       </div>

@@ -30,15 +30,15 @@ export const signUp = (
 ): ThunkAction<Promise<void>, any, any, AnyAction> => {
   return async (dispatch: Dispatch<AnyAction>): Promise<void> => {
     try {
-      const { response }: { response: User[] } = await axios.post(
-        `${apiUrl}/users/signup`,
-        {
-          name,
-          email,
-          password,
-        }
+      const response = await axios.post(`${apiUrl}/users/signup`, {
+        name,
+        email,
+        password,
+      });
+      console.log("signUp", response);
+      dispatch(
+        signUpSuccess({ token: response.data.token, user: response.data.user })
       );
-      dispatch(signUpSuccess(response));
     } catch (error) {
       if (error) {
         console.log(error);

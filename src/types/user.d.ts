@@ -8,6 +8,7 @@ export interface User {
   description: string;
   projects: Project[];
   certifications: Certification[];
+  skills: Skill[];
 }
 
 // export const User: User = {

@@ -17,7 +17,7 @@ export default function UsersPage() {
   const [certificationOpen, setCertificationOpen]: any = useState();
   const [skillOpen, setSkillOpen]: any = useState();
 
-  console.log("users", users);
+  // console.log("users", users);
 
   useEffect(() => {
     dispatch(fetchUsers());

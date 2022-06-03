@@ -6,13 +6,20 @@ export default function ProjectCard(props: User) {
       <div>
         {props.projects.map(function (project) {
           return (
-            <>
+            <div>
               <div>
                 name:
                 <p>{project.name}</p>
               </div>
               <div>{project.description}</div>
-            </>
+              <div>
+                <p>
+                  <a href={project.linkUrl}>
+                    <Button variant="link">Link</Button>
+                  </a>
+                </p>
+              </div>
+            </div>
           );
         })}
       </div>

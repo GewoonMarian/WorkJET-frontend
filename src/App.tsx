@@ -6,9 +6,10 @@ import NavBar from "./components/NavBar";
 
 import UsersPage from "./pages/UserPage";
 import HomePage from "./pages/HomePage";
-import LogIn from "./components/LogIn";
 import SignUp from "./components/SignUp";
+import LogIn from "./components/LogIn";
 import RecruitersPage from "./pages/RecruitersPage";
+import Account from "./pages/Account";
 
 function App() {
   return (
@@ -19,8 +20,9 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/users" element={<UsersPage />} />
         <Route path="/recruiters" element={<RecruitersPage />} />
+        <Route path="/account" element={<Account />} />
 
-        <Route path="/logIn" element={<LogIn />} />
+        <Route path="/login" element={<LogIn />} />
         <Route path="/signUp" element={<SignUp />} />
       </Routes>
     </div>

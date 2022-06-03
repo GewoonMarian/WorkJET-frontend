@@ -1,18 +1,37 @@
-import React, { FormEvent } from "react";
+import React, { FormEvent, useEffect } from "react";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { AppDispatch } from "../../store";
+import { login } from "../../store/user/actions";
+import { selectToken } from "../../store/user/selectors";
 import "./login.css";
 
-function LoginForm({ Login, error }: any) {
-  const [details, setDetails] = useState({ email: "", password: "" });
+export default function LogIn() {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const dispatch: AppDispatch = useDispatch();
+  const token = useSelector(selectToken);
+  const navigate = useNavigate();
 
-  const submitHandler = (event: FormEvent): void => {
+  useEffect(() => {
+    if (token !== null) {
+      navigate("/");
+    }
+  }, [token, navigate]);
+
+  function submitForm(event: FormEvent): void {
+    console.log("hi");
     event.preventDefault();
 
-    Login(details);
-  };
+    dispatch(login(email, password));
+
+    setEmail("");
+    setPassword("");
+  }
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={submitForm}>
       <div
         className="Container"
         style={{
@@ -34,7 +53,6 @@ function LoginForm({ Login, error }: any) {
         >
           <div className="card-body">
             <h2>LogIn</h2>
-            {error !== "" ? <div className="error">{error}</div> : ""}
 
             <div className="mb-3">
               <input
@@ -42,9 +60,7 @@ function LoginForm({ Login, error }: any) {
                 name="email"
                 id="email"
                 placeholder="Type your email"
-                onChange={(event) =>
-                  setDetails({ ...details, email: event.target.value })
-                }
+                onChange={(event) => setEmail(event.target.value)}
               />
             </div>
             <div className="mb-3">
@@ -53,17 +69,24 @@ function LoginForm({ Login, error }: any) {
                 name="password"
                 id="password"
                 placeholder="Type your password"
-                onChange={(event) =>
-                  setDetails({ ...details, password: event.target.value })
-                }
+                onChange={(event) => setPassword(event.target.value)}
               />
             </div>
-            <Button variant="outline-primary">LogIn</Button>
+            <Button
+              variant="outline-primary"
+              type="submit"
+              onClick={submitForm}
+            >
+              LogIn
+            </Button>
+            <div>
+              <p>
+                Click here to <a href="/signup">SignUp</a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </form>
   );
 }
-
-export default LoginForm;

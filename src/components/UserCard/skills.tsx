@@ -3,11 +3,16 @@ import { User } from "../../types/user";
 export default function SkillCard(props: User) {
   return (
     <div>
-      <ol>
-        <li>
-          name<p>{props.skills[0]?.name}</p>
-        </li>
-      </ol>
+      {props.skills.map(function (skill) {
+        return (
+          <>
+            <div>
+              name:
+              <p>{skill.name}</p>
+            </div>
+          </>
+        );
+      })}
     </div>
   );
 }

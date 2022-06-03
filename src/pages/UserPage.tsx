@@ -50,6 +50,7 @@ export default function UsersPage() {
                         boxShadow: "5px 40px 60px #000000",
                         color: "#52be67",
                       }}
+                      key={user.id}
                     >
                       <UserCard
                         id={user.id}
@@ -73,6 +74,7 @@ export default function UsersPage() {
                       >
                         <div>
                           <div>{user.description}</div>
+
                           <div>
                             <div
                               style={{
@@ -118,13 +120,13 @@ export default function UsersPage() {
                                 {projectOpen && (
                                   <div>
                                     <ProjectCard
-                                      id={user.id}
+                                      id={""}
                                       name={""}
+                                      description={""}
                                       email={""}
                                       location={""}
                                       isAvailable={false}
                                       imageUrl={""}
-                                      description={""}
                                       projects={user.projects}
                                       certifications={[]}
                                       skills={[]}

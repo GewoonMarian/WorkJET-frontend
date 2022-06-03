@@ -21,6 +21,16 @@ export default function UserCard(props: User) {
       <div>
         <img src={props.imageUrl} alt="" width="200px" />
       </div>
+      <div>
+        {props.projects.map((project) => {
+          return (
+            <>
+              <div>{project.name}</div>
+              <div>{project.description}</div>
+            </>
+          );
+        })}
+      </div>
     </div>
   );
 }

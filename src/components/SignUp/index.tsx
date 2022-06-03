@@ -1,23 +1,23 @@
 import { signUp } from "../../store/user/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { FormEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { AppDispatch } from "../../store";
 import { useNavigate } from "react-router-dom";
-// import { selectToken } from "../../store/user/selectors";
+import { selectToken } from "../../store/user/selectors";
 export default function SignUp() {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const dispatch: AppDispatch = useDispatch();
-  // const token = useSelector(selectToken);
+  const token = useSelector(selectToken);
   const navigate = useNavigate();
   // console.log("token", token);
 
-  // useEffect(() => {
-  //   if (token !== null) {
-  //     navigate("/");
-  //   }
-  // }, [token, navigate]);
+  useEffect(() => {
+    if (token !== null) {
+      navigate("/");
+    }
+  }, [token, navigate]);
 
   function submitForm(event: any) {
     event.preventDefault();
@@ -96,7 +96,7 @@ export default function SignUp() {
                 </button>
               </div>
               <p>
-                Already registered <a href="/logIn">sign in?</a>
+                Already registered? <a href="/logIn">LogIn</a>
               </p>
             </div>
           </div>

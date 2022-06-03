@@ -1,8 +1,9 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
-import { fechedUsers, signUpSuccess } from "./slice";
+import { fechedUsers, loginSuccess, logOut, tokenStillValid } from "./slice";
 import { User } from "../../types";
 import { AnyAction, Dispatch, ThunkAction } from "@reduxjs/toolkit";
+import { selectToken } from "./selectors";
 
 // Get the users
 export const fetchUsers = (): ThunkAction<
@@ -37,12 +38,67 @@ export const signUp = (
       });
       console.log("signUp", response);
       dispatch(
-        signUpSuccess({ token: response.data.token, user: response.data.user })
+        loginSuccess({ token: response.data.token, user: response.data.user })
       );
     } catch (error) {
       if (error) {
         console.log(error);
       }
+    }
+  };
+};
+// LogOut
+export const getUserWithStoredToken = (): ThunkAction<
+  Promise<void>,
+  any,
+  any,
+  AnyAction
+> => {
+  return async (dispatch, getState) => {
+    const token = selectToken(getState());
+
+    if (token === null) return;
+
+    try {
+      const response = await axios.get(`${apiUrl}/users/me`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      console.log(" me", response.data);
+
+      dispatch(tokenStillValid(response.data));
+    } catch (error) {
+      let errorMessage = "Failed to do something ";
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+      console.log(errorMessage);
+    }
+
+    dispatch(logOut());
+  };
+};
+
+// Sign In
+export const login = (
+  email: string,
+  password: string
+): ThunkAction<Promise<void>, any, any, AnyAction> => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.post(`${apiUrl}/users/login`, {
+        email,
+        password,
+      });
+
+      dispatch(
+        loginSuccess({ token: response.data.token, user: response.data.user })
+      );
+    } catch (error) {
+      let errorMessage = "Failed to do something ";
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+      console.log(errorMessage);
     }
   };
 };

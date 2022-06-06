@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import UserCard from "../components/UserCard";
 import { AppDispatch } from "../store";
@@ -48,7 +48,7 @@ export default function UsersPage() {
                         height: "30rem",
                         backgroundColor: "#212529",
                         boxShadow: "5px 40px 60px #000000",
-                        color: "#52be67",
+                        color: "#dae115",
                       }}
                       key={user.id}
                     >

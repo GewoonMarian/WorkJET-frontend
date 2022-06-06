@@ -7,6 +7,7 @@ import { selectToken } from "../../store/user/selectors";
 
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
+import Searchbar from "../SearchBar";
 
 export default function NavBar() {
   const token = useSelector(selectToken);
@@ -15,7 +16,7 @@ export default function NavBar() {
 
   return (
     <div>
-      <div>
+      {token ? (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Container>
             <Navbar.Brand href="/">Growth</Navbar.Brand>
@@ -37,12 +38,19 @@ export default function NavBar() {
                     Separated link
                   </NavDropdown.Item>
                 </NavDropdown>
+                <Container>
+                  <Searchbar />
+                </Container>
               </Nav>
               <Nav>{loginLogoutControls}</Nav>
             </Navbar.Collapse>
           </Container>
         </Navbar>
-      </div>
+      ) : (
+        <a href="/logIn">
+          <h4>LogIn</h4>
+        </a>
+      )}
     </div>
   );
 }

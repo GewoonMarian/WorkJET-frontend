@@ -1,6 +1,10 @@
 import React from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+
+import { getUserWithStoredToken } from "./store/user/actions";
 
 import NavBar from "./components/NavBar";
 
@@ -12,6 +16,11 @@ import RecruitersPage from "./pages/RecruitersPage";
 import Account from "./pages/Account";
 
 function App() {
+  // const dispatch: AppDispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(getUserWithStoredToken());
+  // }, [dispatch]);
   return (
     <div className="App">
       <NavBar />

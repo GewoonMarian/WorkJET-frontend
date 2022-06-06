@@ -2,7 +2,7 @@ import React, { FormEvent, useEffect } from "react";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AppDispatch } from "../../store";
 import { login } from "../../store/user/actions";
 import { selectToken } from "../../store/user/selectors";

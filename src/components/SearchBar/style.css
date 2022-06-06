@@ -1,0 +1,30 @@
+.search-bar {
+  border-radius: 8px;
+  height: 35px;
+  width: 270px;
+  border: 2px solid white;
+  padding-left: 25px;
+}
+
+.results-container {
+  padding: 0;
+  margin: 0;
+  min-width: 160px;
+  padding-left: 1em;
+  background: #ffffff;
+  border: 2px solid #e5e5e5;
+  font-weight: 400;
+  box-sizing: border-box;
+  color: #3faffa;
+  position: absolute;
+}
+
+.results-container:first-child {
+  padding-top: 0.8em;
+}
+
+.result-item {
+  list-style: none;
+  margin-bottom: 0.8em;
+  cursor: pointer;
+}

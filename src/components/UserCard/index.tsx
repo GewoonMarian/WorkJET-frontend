@@ -15,7 +15,7 @@ export default function UserCard(props: User) {
       </p>
       <p>
         Available:
-        <Badge bg="success">{props.isAvailable ? "TRUE" : "FALSE"}</Badge>
+        <Badge bg="success">{props.isAvailable ? "✅" : "📛"}</Badge>
       </p>
 
       <div>

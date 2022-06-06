@@ -11,7 +11,6 @@ export default function SignUp() {
   const dispatch: AppDispatch = useDispatch();
   const token = useSelector(selectToken);
   const navigate = useNavigate();
-  // console.log("token", token);
 
   useEffect(() => {
     if (token !== null) {

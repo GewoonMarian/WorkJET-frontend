@@ -15,7 +15,7 @@ export default function RecruiterCard(props: Recruiter) {
       </p>
       <p>
         Recruiting:
-        <Badge bg="success">{props.isRecruting ? "TRUE" : "FALSE"}</Badge>
+        <Badge bg="success">{props.isRecruting ? "✅" : "📛"}</Badge>
       </p>
       <div>
         <img src={props.imageUrl} alt="" width="200px" />

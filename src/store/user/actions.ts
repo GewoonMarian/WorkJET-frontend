@@ -4,6 +4,8 @@ import { fechedUsers, loginSuccess, logOut, tokenStillValid } from "./slice";
 import { User } from "../../types";
 import { AnyAction, Dispatch, ThunkAction } from "@reduxjs/toolkit";
 import { selectToken } from "./selectors";
+import { showMessageWithTimeout } from "../appState/actions";
+import { appDoneLoading, setMessage } from "../appState/slice";
 
 // Get the users
 export const fetchUsers = (): ThunkAction<
@@ -15,7 +17,6 @@ export const fetchUsers = (): ThunkAction<
   return async (dispatch: Dispatch<AnyAction>): Promise<void> => {
     try {
       const { data }: { data: User[] } = await axios.get(`${apiUrl}/users`);
-
       dispatch(fechedUsers(data));
     } catch (error) {
       console.log(error);
@@ -40,9 +41,20 @@ export const signUp = (
       dispatch(
         loginSuccess({ token: response.data.token, user: response.data.user })
       );
+      // dispatch(
+      //   showMessageWithTimeout("success", true, "account created", 1500)
+      // );
+      dispatch(appDoneLoading());
     } catch (error) {
-      if (error) {
+      if (error instanceof Error) {
         console.log(error);
+        dispatch(
+          setMessage({
+            variant: "danger",
+            dismissable: true,
+            text: error.message,
+          })
+        );
       }
     }
   };

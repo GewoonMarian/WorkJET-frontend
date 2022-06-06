@@ -6,36 +6,17 @@ import { fetchRecruiters } from "../store/recruiters/action";
 import { selectRecruiters } from "../store/recruiters/selectors";
 import { Recruiter } from "../types";
 import SearchForm from "../components/SearchBar";
+import ApplyForm from "../components/ApplyForm";
+import Button from "react-bootstrap/Button";
+import { NavLink } from "react-router-dom";
 
 export default function RecruitersPage() {
   const dispatch: AppDispatch = useDispatch();
   const recruiters = useSelector(selectRecruiters);
-  const [nameFilter, setNameFilter] = useState([]);
-
-  console.log("users", recruiters);
 
   useEffect(() => {
     dispatch(fetchRecruiters());
   }, [dispatch]);
-
-  // const liftNameFilter = (event: { target: { value: string } }) => {
-  //   const name = event.target.value;
-
-  //   setNameFilter(name.toLowerCase());
-  // };
-
-  // const filterByName = (recruiters:Recruiter, name: string) => {
-  //   const result = recruiters.filter((_recruiter) =>
-  //     recruiters.name.toLowerCase().startsWith(name)
-  //   );
-  //   return result;
-  // };
-  // const filterByName = (charactersList, name) => {
-  //   const result = charactersList.filter((character) =>
-  //     character.name.toLowerCase().startsWith(name)
-  //   );
-  //   return result;
-  // };
 
   return (
     <div
@@ -47,7 +28,7 @@ export default function RecruitersPage() {
     >
       <div>
         <h1>Recruiters Page</h1>
-        {/* <SearchForm liftNameFilter={liftNameFilter} /> */}
+
         {recruiters
           ? recruiters.map((recruiter: Recruiter) => {
               return (
@@ -58,7 +39,6 @@ export default function RecruitersPage() {
                   <div className="col-sm-6">
                     <div>
                       <h2>
-                        <strong style={{ color: "#066594" }}>Job Title</strong>
                         <div style={{ color: "#730404" }}>
                           {recruiter.jobTitle}
                         </div>
@@ -83,6 +63,7 @@ export default function RecruitersPage() {
                         isRecruting={recruiter.isRecruting}
                         jobDescription={""}
                       />
+
                       <div
                         style={{
                           display: "flex",
@@ -91,6 +72,8 @@ export default function RecruitersPage() {
                         }}
                       >
                         {recruiter.jobDescription}
+
+                        <a href="/apply">Apply</a>
                       </div>
                     </div>
                   </div>

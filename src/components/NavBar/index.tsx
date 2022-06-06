@@ -1,6 +1,7 @@
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { GiJetPack } from "react-icons/gi";
 import { Nav } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { selectToken } from "../../store/user/selectors";
@@ -19,7 +20,7 @@ export default function NavBar() {
       {token ? (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Container>
-            <Navbar.Brand href="/">Growth</Navbar.Brand>
+            <Navbar.Brand href="/">WorkJET<GiJetPack/></Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">

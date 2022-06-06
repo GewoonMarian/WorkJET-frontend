@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -14,13 +13,15 @@ import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import RecruitersPage from "./pages/RecruitersPage";
 import Account from "./pages/Account";
+import ApplyForm from "./components/ApplyForm";
+import { AppDispatch } from "./store";
 
 function App() {
-  // const dispatch: AppDispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getUserWithStoredToken());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getUserWithStoredToken());
+  }, [dispatch]);
   return (
     <div className="App">
       <NavBar />
@@ -30,6 +31,7 @@ function App() {
         <Route path="/users" element={<UsersPage />} />
         <Route path="/recruiters" element={<RecruitersPage />} />
         <Route path="/account" element={<Account />} />
+        <Route path="/apply" element={<ApplyForm />} />
 
         <Route path="/login" element={<LogIn />} />
         <Route path="/signUp" element={<SignUp />} />

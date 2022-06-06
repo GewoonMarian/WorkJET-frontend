@@ -1,32 +1,21 @@
-import { signUp } from "../../store/user/actions";
-import { useDispatch, useSelector } from "react-redux";
-import { EventHandler, useEffect, useState } from "react";
-import { AppDispatch } from "../../store";
-import { useNavigate } from "react-router-dom";
-import { selectToken } from "../../store/user/selectors";
-export default function SignUp() {
-  const [name, setName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const dispatch: AppDispatch = useDispatch();
-  const token = useSelector(selectToken);
-  const navigate = useNavigate();
+import { useState } from "react";
+const ApplyForm = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [subject, setSubject] = useState("");
 
-  useEffect(() => {
-    if (token !== null) {
-      navigate("/");
-    }
-  }, [token, navigate]);
+  // function submitForm(event: any) {
+  //   event.preventDefault();
 
-  function submitForm(event: any) {
-    event.preventDefault();
+  //   dispatch(apple(name, email, subject, message));
 
-    dispatch(signUp(name, email, password));
+  //   setName("");
+  //   setEmail("");
+  //   setSubject("");
+  //   setMessage("");
+  // }
 
-    setEmail("");
-    setPassword("");
-    setName("");
-  }
   return (
     <form>
       <div
@@ -49,7 +38,6 @@ export default function SignUp() {
           }}
         >
           <div className="card-body">
-            <h3>Sign Up</h3>
             <div className="mb-3">
               <label>Name</label>
               <input
@@ -61,7 +49,6 @@ export default function SignUp() {
                 required
               />
             </div>
-
             <div className="mb-3">
               <label>Email address</label>
               <input
@@ -74,13 +61,23 @@ export default function SignUp() {
               />
             </div>
             <div className="mb-3">
-              <label>Password</label>
+              <label>Subject</label>
               <input
-                type="password"
+                type="subject"
                 className="form-control"
-                placeholder="Enter password"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
+                placeholder="Enter subject"
+                value={subject}
+                onChange={(event) => setSubject(event.target.value)}
+                required
+              />
+            </div>
+            <div className="mb-3 pt-0">
+              <textarea
+                type="message"
+                placeholder="Your message"
+                className="px-3 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
+                value={message}
+                onChange={(event) => setMessage(event.target.value)}
                 required
               />
             </div>
@@ -88,17 +85,15 @@ export default function SignUp() {
               <button
                 type="submit"
                 className="btn btn-primary"
-                onClick={submitForm}
+                // onClick={submitForm}
               >
-                Sign Up
+                Send
               </button>
             </div>
-            <p>
-              Already registered? <a href="/logIn">LogIn</a>
-            </p>
           </div>
         </div>
       </div>
     </form>
   );
-}
+};
+export default ApplyForm;

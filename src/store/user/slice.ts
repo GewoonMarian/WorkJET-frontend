@@ -4,7 +4,7 @@ import { User } from "../../types";
 interface IState {
   users: User[];
   token: string | null;
-  profile: User[] | null;
+  profile: User | null;
 }
 
 const initialState: IState = {
@@ -21,7 +21,6 @@ export const userSlice = createSlice({
       state.users = action.payload;
     },
     loginSuccess: (state, action) => {
-      console.log("what's the action? login", action);
       localStorage.setItem("token", action.payload.token);
       state.token = action.payload.token;
       state.profile = action.payload.user;

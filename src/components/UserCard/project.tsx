@@ -4,7 +4,7 @@ export default function ProjectCard(props: User) {
   return (
     <div>
       <div>
-        {props.projects.map(function (project) {
+        {props.projects.map((project) => {
           return (
             <div>
               <div>

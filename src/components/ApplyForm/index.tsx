@@ -1,23 +1,27 @@
 import { useState } from "react";
+import { FormEvent } from "react";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../store";
 const ApplyForm = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [subject, setSubject] = useState("");
+  const dispatch: AppDispatch = useDispatch();
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const [subject, setSubject] = useState<string>("");
 
-  // function submitForm(event: any) {
-  //   event.preventDefault();
+  function submitForm(event: FormEvent): void {
+    event.preventDefault();
 
-  //   dispatch(apple(name, email, subject, message));
+    dispatch(apply(name, email, subject, message));
 
-  //   setName("");
-  //   setEmail("");
-  //   setSubject("");
-  //   setMessage("");
-  // }
+    setName("");
+    setEmail("");
+    setSubject("");
+    setMessage("");
+  }
 
   return (
-    <form>
+    <form onSubmit={submitForm}>
       <div
         className="Container"
         style={{
@@ -73,7 +77,6 @@ const ApplyForm = () => {
             </div>
             <div className="mb-3 pt-0">
               <textarea
-                type="message"
                 placeholder="Your message"
                 className="px-3 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
                 value={message}
@@ -85,7 +88,7 @@ const ApplyForm = () => {
               <button
                 type="submit"
                 className="btn btn-primary"
-                // onClick={submitForm}
+                onClick={submitForm}
               >
                 Send
               </button>

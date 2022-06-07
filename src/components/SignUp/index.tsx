@@ -1,6 +1,6 @@
 import { signUp } from "../../store/user/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { EventHandler, useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { AppDispatch } from "../../store";
 import { useNavigate } from "react-router-dom";
 import { selectToken } from "../../store/user/selectors";
@@ -18,9 +18,8 @@ export default function SignUp() {
     }
   }, [token, navigate]);
 
-  function submitForm(event: any) {
+  function submitForm(event: FormEvent): void {
     event.preventDefault();
-
     dispatch(signUp(name, email, password));
 
     setEmail("");
@@ -28,7 +27,7 @@ export default function SignUp() {
     setName("");
   }
   return (
-    <form>
+    <form onSubmit={submitForm}>
       <div
         className="Container"
         style={{

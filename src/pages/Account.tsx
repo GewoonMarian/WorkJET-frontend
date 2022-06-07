@@ -1,13 +1,10 @@
-import { useEffect } from "react";
 import { Button } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch } from "../store";
+import { useSelector } from "react-redux";
+import SkillForm from "../components/EditProfile/SkillForm";
 import { selectUserProfile } from "../store/user/selectors";
 
 export default function Account() {
   const user = useSelector(selectUserProfile);
-
-  console.log("account Page", user);
 
   return user !== null ? (
     <div
@@ -19,119 +16,126 @@ export default function Account() {
       }}
     >
       <div>
-        <div className="container d-flex flex-row">
+        <div className=" container d-flex flex-col">
           <div className="col-sm-6">
             <div
-              className="d-flex flex-row"
+              className="d-flex flex-col"
               style={{
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
                 width: "60rem",
                 height: "30rem",
-                backgroundColor: "transparent",
+                backgroundColor: "#586c67",
                 boxShadow: "5px 40px 60px #000000",
-                color: "blue",
-                border: "solid 2px red",
+                color: "white",
               }}
             >
               <div
                 className="User-card"
-                style={{ border: "solid 2px white" }}
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
                 key={user.id}
               >
-                <p>
-                  Name <p>{user.name}</p>
-                </p>
-                <p>
-                  Email <p>{user.email}</p>
-                </p>
-                <p>
-                  Location <p>{user.location}</p>
-                </p>
+                <li>
+                  <p>
+                    Name <p>{user.name}</p>
+                  </p>
+                  <p>
+                    Email <p>{user.email}</p>
+                  </p>
+                  <p>
+                    Location <p>{user.location}</p>
+                  </p>
 
-                <p>
-                  Availability <p>{user.isAvailable ? "yess" : "noo"}</p>
-                </p>
+                  <p>
+                    Availability <p>{user.isAvailable ? "yess" : "noo"}</p>
+                  </p>
+                </li>
 
                 <img src={user.imageUrl} alt={user.name} width="300" />
-              </div>
-              <p>
-                <div style={{ padding: "50px" }}>
-                  {" "}
-                  About:
-                  <svg
-                    viewBox="0 0 36 36"
-                    fill="none"
-                    role="img"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="80"
-                    height="80"
-                  >
-                    <title>Mother Frances</title>
-                    <mask
-                      id="mask__beam"
-                      maskUnits="userSpaceOnUse"
-                      x="0"
-                      y="0"
-                      width="36"
-                      height="36"
+
+                <p>
+                  <div style={{ padding: "50px" }}>
+                    {" "}
+                    About
+                    <svg
+                      viewBox="0 0 36 36"
+                      fill="none"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="80"
+                      height="80"
                     >
-                      <rect
-                        width="36"
-                        height="36"
-                        rx="72"
-                        fill="#FFFFFF"
-                      ></rect>
-                    </mask>
-                    <g mask="url(#mask__beam)">
-                      <rect width="36" height="36" fill="#e8175d"></rect>
-                      <rect
+                      <title>Mother Frances</title>
+                      <mask
+                        id="mask__beam"
+                        maskUnits="userSpaceOnUse"
                         x="0"
                         y="0"
                         width="36"
                         height="36"
-                        transform="translate(-5 9) rotate(229 18 18) scale(1.1)"
-                        fill="#363636"
-                        rx="36"
-                      ></rect>
-                      <g transform="translate(-5 4.5) rotate(9 18 18)">
-                        <path
-                          d="M13,20 a1,0.75 0 0,0 10,0"
-                          fill="#FFFFFF"
-                        ></path>
+                      >
                         <rect
-                          x="10"
-                          y="14"
-                          width="1.5"
-                          height="2"
-                          rx="1"
-                          stroke="none"
+                          width="36"
+                          height="36"
+                          rx="72"
                           fill="#FFFFFF"
                         ></rect>
+                      </mask>
+                      <g mask="url(#mask__beam)">
+                        <rect width="36" height="36" fill="#e8175d"></rect>
                         <rect
-                          x="24"
-                          y="14"
-                          width="1.5"
-                          height="2"
-                          rx="1"
-                          stroke="none"
-                          fill="#FFFFFF"
+                          x="0"
+                          y="0"
+                          width="36"
+                          height="36"
+                          transform="translate(-5 9) rotate(229 18 18) scale(1.1)"
+                          fill="#363636"
+                          rx="36"
                         ></rect>
+                        <g transform="translate(-5 4.5) rotate(9 18 18)">
+                          <path
+                            d="M13,20 a1,0.75 0 0,0 10,0"
+                            fill="#FFFFFF"
+                          ></path>
+                          <rect
+                            x="10"
+                            y="14"
+                            width="1.5"
+                            height="2"
+                            rx="1"
+                            stroke="none"
+                            fill="#FFFFFF"
+                          ></rect>
+                          <rect
+                            x="24"
+                            y="14"
+                            width="1.5"
+                            height="2"
+                            rx="1"
+                            stroke="none"
+                            fill="#FFFFFF"
+                          ></rect>
+                        </g>
                       </g>
-                    </g>
-                  </svg>
-                </div>
-                <p>{user.description}</p>
-              </p>
+                    </svg>
+                  </div>
+                  <p>{user.description}</p>
+                </p>
+              </div>
             </div>
           </div>
         </div>
+
         {user
           ? user.projects.map((project) => (
               <div
                 className="container d-flex flex-row"
-                style={{ padding: "20px" }}
+                style={{ padding: "150px" }}
               >
                 <div className="col-sm-6">
                   <div
@@ -142,23 +146,22 @@ export default function Account() {
                       alignItems: "center",
                       width: "60rem",
                       height: "20rem",
-                      backgroundColor: "transparent",
+                      backgroundColor: "#809e97",
                       boxShadow: "5px 40px 60px #000000",
-                      color: "blue",
-                      border: "solid 2px red",
+                      color: "white",
                     }}
                   >
                     <div className="col">
                       <h1>Projects</h1>
                     </div>
                     <h3 className="col">
-                      Name:<h5>{project.name}</h5>
+                      Name<h5>{project.name}</h5>
                     </h3>
                     <h3 className="col">
-                      Description:<h5>{project.description}</h5>
+                      Description<h5>{project.description}</h5>
                     </h3>
                     <h3 className="col">
-                      Link:
+                      Link
                       <h5>
                         {" "}
                         <a href={project.linkUrl}>
@@ -188,24 +191,24 @@ export default function Account() {
                       height: "20rem",
                       backgroundColor: "transparent",
                       boxShadow: "5px 40px 60px #000000",
-                      color: "blue",
-                      border: "solid 2px red",
+                      color: "white",
                     }}
                   >
                     <div className="col">
                       <h1>Certifications</h1>
                     </div>
                     <h3 className="col">
-                      Name:<h5>{certification.title}</h5>
+                      Name<h5>{certification.title}</h5>
                     </h3>
                     <h3 className="col">
-                      Description:<h5>{certification.date}</h5>
+                      Description<h5>{certification.date}</h5>
                     </h3>
                   </div>
                 </div>
               </div>
             ))
           : ""}
+
         <div className="container d-flex flex-row" style={{ padding: "20px" }}>
           <div className="col-sm-6">
             <div
@@ -218,8 +221,7 @@ export default function Account() {
                 height: "20rem",
                 backgroundColor: "transparent",
                 boxShadow: "5px 40px 60px #000000",
-                color: "blue",
-                border: "solid 2px red",
+                color: "white",
               }}
             >
               {" "}
@@ -227,12 +229,13 @@ export default function Account() {
               {user
                 ? user.skills.map((skill) => (
                     <div>
-                      <li>
-                        Name:<h5>{skill.name}</h5>
-                      </li>
+                      <div>
+                        <>Name</>
+                        <h5>{skill.name}</h5>
+                      </div>
                     </div>
                   ))
-                : ""}
+                : "No Skills to display"}
             </div>
           </div>
         </div>

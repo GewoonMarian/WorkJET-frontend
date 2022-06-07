@@ -33,10 +33,18 @@ export const userSlice = createSlice({
     tokenStillValid: (state, action) => {
       state.profile = action.payload.user;
     },
+    skillUpdated: (state, action) => {
+      state.profile = action.payload;
+    },
   },
 });
 
-export const { fechedUsers, loginSuccess, logOut, tokenStillValid } =
-  userSlice.actions;
+export const {
+  fechedUsers,
+  loginSuccess,
+  logOut,
+  tokenStillValid,
+  skillUpdated,
+} = userSlice.actions;
 
 export default userSlice.reducer;

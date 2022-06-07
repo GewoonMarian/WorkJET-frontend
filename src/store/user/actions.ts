@@ -1,6 +1,12 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
-import { fechedUsers, loginSuccess, logOut, tokenStillValid } from "./slice";
+import {
+  fechedUsers,
+  loginSuccess,
+  logOut,
+  tokenStillValid,
+  skillUpdated,
+} from "./slice";
 import { User } from "../../types";
 import { AnyAction, Dispatch, ThunkAction } from "@reduxjs/toolkit";
 import { selectToken } from "./selectors";
@@ -76,7 +82,6 @@ export const getUserWithStoredToken = (): ThunkAction<
       const response = await axios.get(`${apiUrl}/users/me`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      console.log(" me", response.data);
 
       dispatch(tokenStillValid(response.data));
       dispatch(appDoneLoading());
@@ -118,3 +123,41 @@ export const login = (
     }
   };
 };
+//   const {
+//   profile: { space },
+//   token,
+// } = getState()
+// update user skills
+// export const updateMySkills = (name: string) => {
+//   return async (
+//     dispatch: Dispatch<AnyAction>,
+//     getState: () => {
+//       (): any;
+//       new (): any;
+//       user: { profile: { skills: { name: string } }; token: any };
+//     }
+//   ) => {
+//     try {
+//       const {
+//         profile: { skills },
+//         token,
+//       } = getState().user;
+//       const response = await axios.patch(
+//         `${apiUrl}/skills/${skills.id}`,
+//         {
+//           name,
+//         },
+//         {
+//           headers: {
+//             Authorization: `Bearer ${token}`,
+//           },
+//         }
+//       );
+//       console.log("update", response);
+
+//       dispatch(skillUpdated(response.data.skill));
+//     } catch (e: any) {
+//       console.log(e.message);
+//     }
+//   };
+// };

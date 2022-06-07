@@ -47,8 +47,8 @@ export default function UsersPage() {
                         width: "60rem",
                         height: "30rem",
                         backgroundColor: "#212529",
-                        boxShadow: "5px 40px 60px #000000",
-                        color: "#dae115",
+                        boxShadow: "5px 40px 60px #26ff04",
+                        color: "#52be67",
                       }}
                       key={user.id}
                     >

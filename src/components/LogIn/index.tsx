@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { AppDispatch } from "../../store";
 import { login } from "../../store/user/actions";
 import { selectToken } from "../../store/user/selectors";
-import "./login.css";
 
 export default function LogIn() {
   const [email, setEmail] = useState<string>("");
@@ -22,7 +21,6 @@ export default function LogIn() {
   }, [token, navigate]);
 
   function submitForm(event: FormEvent): void {
-    console.log("hi");
     event.preventDefault();
 
     dispatch(login(email, password));

@@ -76,9 +76,12 @@ export default function RecruitersPage() {
                           alignItems: "center",
                         }}
                       >
-                        {recruiter.jobDescription}
-
-                        <a href="/apply">Apply</a>
+                        <div>
+                          <div>{recruiter.jobDescription}</div>
+                          <div>
+                            <a href="/apply">Apply</a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>

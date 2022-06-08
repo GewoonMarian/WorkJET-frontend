@@ -4,12 +4,14 @@ import { updateMySkills } from "../../store/user/actions";
 import { AppDispatch } from "../../store";
 import axios from "axios";
 import Pagination from "./Pagination";
+
+import { GiSkills } from "react-icons/gi";
 export default function SkillForm() {
   const dispatch: AppDispatch = useDispatch();
   // const [skills, setSkills] = useState<number[] | null | undefined>(null);
 
   const [allSkills, setAllSkills] = useState<any>();
-  const [skillsPerPage] = useState<number>(10);
+  const [skillsPerPage] = useState<number>(20);
   const [offset, setOffset] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -42,8 +44,8 @@ export default function SkillForm() {
     <div>
       <>
         {!loading && allSkills ? (
-          allSkills.map((s: { name: string }) => (
-            <div className="card">{s.name}</div>
+          allSkills.map((skill: { name: string }) => (
+            <div className="card">{skill.name}</div>
           ))
         ) : (
           <div>No more items</div>
@@ -56,6 +58,18 @@ export default function SkillForm() {
             amountOfSkills={allSkills}
           />
         </div>
+      </>
+      <>
+        <form>
+          <label>
+            <h4 style={{ color: "white" }}>
+              Name A Skill <GiSkills />
+            </h4>
+
+            <input type="text" name="name" />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
       </>
     </div>
   );

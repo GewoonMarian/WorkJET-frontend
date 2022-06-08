@@ -47,11 +47,14 @@ const ApplyForm = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            color: "lightgray",
           }}
         >
           <div className="card-body">
             <div className="mb-3">
-              <label>Name</label>
+              <label>
+                <strong>Name</strong>
+              </label>
               <input
                 type="text"
                 className="form-control"
@@ -62,7 +65,9 @@ const ApplyForm = () => {
               />
             </div>
             <div className="mb-3">
-              <label>Email address</label>
+              <label>
+                <strong>Email</strong>
+              </label>
               <input
                 type="email"
                 className="form-control"
@@ -73,7 +78,9 @@ const ApplyForm = () => {
               />
             </div>
             <div className="mb-3">
-              <label>Subject</label>
+              <label>
+                <strong>Subject</strong>
+              </label>
               <input
                 type="subject"
                 className="form-control"

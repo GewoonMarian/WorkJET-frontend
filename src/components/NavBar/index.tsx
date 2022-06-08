@@ -8,7 +8,6 @@ import { selectToken } from "../../store/user/selectors";
 
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
-import Searchbar from "../SearchBar";
 
 export default function NavBar() {
   const token = useSelector(selectToken);
@@ -32,9 +31,6 @@ export default function NavBar() {
                 <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                   <NavDropdown.Item href="account">Account</NavDropdown.Item>
                 </NavDropdown>
-                <Container>
-                  <Searchbar />
-                </Container>
               </Nav>
               <Nav>{loginLogoutControls}</Nav>
             </Navbar.Collapse>

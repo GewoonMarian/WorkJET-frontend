@@ -10,6 +10,8 @@ export default function SignUp() {
   const [password, setPassword] = useState<string>("");
   const [isRecruiter, setIsRecruiter] = useState<boolean>(false);
 
+  console.log("rec", isRecruiter);
+
   const dispatch: AppDispatch = useDispatch();
   const token = useSelector(selectToken);
   const navigate = useNavigate();
@@ -87,25 +89,14 @@ export default function SignUp() {
               />
             </div>
             <div className="mb-3">
-              <div className="mb-3">
-                <label>Password</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  placeholder="Enter password"
-                  value={password}
-                  onChange={(event) => setPassword(event.target.value)}
-                  required
-                />
-              </div>
-              {/* <div>
+              <div>
                 <label> Are you a Recruiter?</label>
                 <input
                   type="checkbox"
                   checked={isRecruiter}
-                  onChange={(event) => setIsRecruiter(event.target.value)}
+                  onChange={() => setIsRecruiter(!isRecruiter)}
                 />
-              </div> */}
+              </div>
 
               <div className="d-grid">
                 <button

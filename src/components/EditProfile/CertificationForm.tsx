@@ -18,7 +18,7 @@ export default function CertificationForm() {
           value={title}
           onChange={(event) => setTitle(event.target.value)}
           type="text"
-          placeholder="Name of your project"
+          placeholder="Name "
           required
         />
       </Form.Group>
@@ -28,7 +28,7 @@ export default function CertificationForm() {
           value={date}
           onChange={(event) => setDate(event.target.value)}
           type="text"
-          placeholder="Description"
+          placeholder="Date"
           required
         />
       </Form.Group>

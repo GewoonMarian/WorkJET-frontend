@@ -1,41 +1,76 @@
-import React, { FormEvent, useState } from "react";
+import {
+  FormEvent,
+  JSXElementConstructor,
+  ReactElement,
+  ReactFragment,
+  ReactPortal,
+  useEffect,
+  useState,
+} from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { useSelector, useDispatch } from "react-redux";
-import { selectUsers } from "../../store/user/selectors";
-// import { updateMySkills } from "../../store/user/actions";
+import { useDispatch } from "react-redux";
+import { updateMySkills } from "../../store/user/actions";
 import { AppDispatch } from "../../store";
-
+import { getAllSkills } from "../../store/user/actions";
+import axios from "axios";
+import Pagination from "./Pagination";
+import { idText } from "typescript";
 export default function SkillForm() {
-  const skill = useSelector(selectUsers);
-  const dispatch: AppDispatch = useDispatch();
-  const [name, setName] = useState<string>("");
+  const dispatch = useDispatch();
+  // const [skills, setSkills] = useState<number[] | null | undefined>(null);
 
-  function submitForm(event: FormEvent): void {
-    event.preventDefault();
+  const [allSkills, setAllSkills] = useState<any>();
+  const [skillsPerPage] = useState<number>(10);
+  const [offset, setOffset] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(false);
 
-    console.log(name);
-    //updateMySkills(name)
+  console.log("offset", offset);
+
+  async function getSkills(): Promise<void> {
+    setLoading(true);
+    const response = await axios.get(
+      `http://localhost:4000/skills?limit=${skillsPerPage}&offset=${offset}`
+    );
+    console.log("prod", response);
+    setOffset(offset + 10);
+    setLoading(false);
+    setAllSkills(response.data.rows);
   }
-  return (
-    <Form className="mt-5">
-      <h1 className="mt-5 mb-5">Add a skill</h1>
-      <Form.Group>
-        <Form.Label>Name</Form.Label>
-        <Form.Control
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-          type="text"
-          placeholder="Name of your skill"
-          required
-        />
-      </Form.Group>
 
-      <Form.Group className="mt-5">
-        <Button variant="primary" type="submit" onClick={submitForm}>
-          Save
-        </Button>
-      </Form.Group>
-    </Form>
+  useEffect(() => {
+    getSkills();
+  }, []);
+
+  // useEffect(() => {
+  //   dispatch(getAllSkills());
+  // }, [dispatch]);
+
+  // function submitForm(event: FormEvent): void {
+  //   event.preventDefault();
+
+  //   dispatch(updateMySkills(skills));
+  // }
+  return (
+    <div>
+      <>
+        {!loading && allSkills ? (
+          allSkills.map((s: { name: string }) => (
+            <div className="card">{s.name}</div>
+          ))
+        ) : (
+          <div>No more items</div>
+        )}
+        <div>
+          <Pagination
+            // offset={offset}
+            // setOffset={setOffset}
+            skillsPerPage={skillsPerPage}
+            amountOfSkills={allSkills}
+            getSkills={getSkills}
+          />
+        </div>
+      </>
+    </div>
   );
 }

@@ -5,14 +5,21 @@ import { AppDispatch } from "../store";
 import { fetchRecruiters } from "../store/recruiters/action";
 import { selectRecruiters } from "../store/recruiters/selectors";
 import { Recruiter } from "../types";
-import SearchForm from "../components/SearchBar";
-import ApplyForm from "../components/ApplyForm";
-import Button from "react-bootstrap/Button";
-import { NavLink } from "react-router-dom";
+import { selectToken } from "../store/user/selectors";
+import { useNavigate } from "react-router-dom";
 
 export default function RecruitersPage() {
   const dispatch: AppDispatch = useDispatch();
   const recruiters = useSelector(selectRecruiters);
+
+  const token = useSelector(selectToken);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (token === null) {
+      navigate("/login");
+    }
+  }, [token, navigate]);
 
   useEffect(() => {
     dispatch(fetchRecruiters());

@@ -5,10 +5,21 @@ import { AppDispatch } from "../store";
 import { fetchNews } from "../store/news/actions";
 import { selectNews } from "../store/news/selectors";
 import { News } from "../types";
+import { selectToken } from "../store/user/selectors";
+import { useNavigate } from "react-router-dom";
 
 export default function UsersPage() {
   const dispatch: AppDispatch = useDispatch();
   const news = useSelector(selectNews);
+
+  const token = useSelector(selectToken);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (token === null) {
+      navigate("/login");
+    }
+  }, [token, navigate]);
 
   useEffect(() => {
     dispatch(fetchNews());
@@ -27,6 +38,7 @@ export default function UsersPage() {
                       style={{
                         backgroundColor: "transparent",
                         boxShadow: "5px 40px 60px #000000",
+                        color: "white",
                       }}
                     >
                       <div className="card-body">

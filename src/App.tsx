@@ -16,6 +16,11 @@ import Account from "./pages/Account";
 import ApplyForm from "./components/ApplyForm";
 import { AppDispatch } from "./store";
 
+import SkillForm from "./components/EditProfile/SkillForm";
+import ProfileForm from "./components/EditProfile/ProfileForm";
+import CertificationForm from "./components/EditProfile/CertificationForm";
+import ProjectForm from "./components/EditProfile/ProjectForm";
+
 function App() {
   const dispatch: AppDispatch = useDispatch();
 
@@ -35,6 +40,11 @@ function App() {
 
         <Route path="/login" element={<LogIn />} />
         <Route path="/signUp" element={<SignUp />} />
+
+        <Route path="skillEdit" element={<SkillForm />} />
+        <Route path="profileEdit" element={<ProfileForm />} />
+        <Route path="projectEdit" element={<ProjectForm />} />
+        <Route path="certificationEdit" element={<CertificationForm />} />
       </Routes>
     </div>
   );

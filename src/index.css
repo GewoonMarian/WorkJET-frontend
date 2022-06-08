@@ -1,11 +1,17 @@
 body {
-  background: #00b09b;
-  background: -webkit-linear-gradient(to right, #7e9fa0, #1c608a);
-  background: linear-gradient(to right, #7e9fa0, #1c608a);
-
-  min-height: 100vh;
-}
-
-.text-gray {
-  color: #9e8d80;
+  /* background: #00b09b; */
+  /* background: -webkit-linear-gradient(to right, red 10%, 30%, blue 90%); */
+  /* background: linear-gradient(to right, red 10%, 30%, blue 90%); */
+  /* min-height: 100vh; */
+  background-image: linear-gradient(
+    to top,
+    #0e0d0d 0%,
+    #5bb371 24%,
+    #5dccb2 30%,
+    #62d5e7 46%,
+    #185574 59%,
+    #123082 71%,
+    #16293d 84%,
+    #2c2841 100%
+  );
 }

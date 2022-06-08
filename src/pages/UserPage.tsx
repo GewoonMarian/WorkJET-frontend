@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import UserCard from "../components/UserCard";
 import { AppDispatch } from "../store";
 import { fetchUsers } from "../store/user/actions";
-import { selectUsers } from "../store/user/selectors";
+import { selectUsers, selectToken } from "../store/user/selectors";
 import { User } from "../types";
 import ProjectCard from "../components/UserCard/project";
 import Button from "react-bootstrap/Button";
 import CertificationCard from "../components/UserCard/Certification";
 import SkillCard from "../components/UserCard/skills";
+import { useNavigate } from "react-router-dom";
 
 export default function UsersPage() {
   const dispatch: AppDispatch = useDispatch();
@@ -16,8 +17,14 @@ export default function UsersPage() {
   const [projectOpen, setProjectOpen]: any = useState();
   const [certificationOpen, setCertificationOpen]: any = useState();
   const [skillOpen, setSkillOpen]: any = useState();
+  const token = useSelector(selectToken);
+  const navigate = useNavigate();
 
-  // console.log("users", users);
+  useEffect(() => {
+    if (token === null) {
+      navigate("/login");
+    }
+  }, [token, navigate]);
 
   useEffect(() => {
     dispatch(fetchUsers());
@@ -46,6 +53,7 @@ export default function UsersPage() {
                         width: "60rem",
                         height: "30rem",
                         backgroundColor: "#212529",
+
                         boxShadow: "5px 40px 60px #26ff04",
                         color: "#52be67",
                       }}

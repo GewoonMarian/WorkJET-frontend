@@ -1,10 +1,21 @@
 import { Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import SkillForm from "../components/EditProfile/SkillForm";
-import { selectUserProfile } from "../store/user/selectors";
+import { selectUserProfile, selectToken } from "../store/user/selectors";
+import { useNavigate } from "react-router-dom";
+
+import { useEffect } from "react";
 
 export default function Account() {
   const user = useSelector(selectUserProfile);
+  const token = useSelector(selectToken);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (token === null) {
+      navigate("/login");
+    }
+  }, [token, navigate]);
 
   return user !== null ? (
     <div
@@ -130,7 +141,56 @@ export default function Account() {
             </div>
           </div>
         </div>
-
+        <div>
+          <p>
+            <a
+              className="btn btn-primary"
+              data-toggle="collapse"
+              href="skillEdit"
+              role="button"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+            >
+              Update Skills
+            </a>
+          </p>
+          <p>
+            <a
+              className="btn btn-primary"
+              data-toggle="collapse"
+              href="profileEdit"
+              role="button"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+            >
+              Update Profile
+            </a>
+          </p>
+          <p>
+            <a
+              className="btn btn-primary"
+              data-toggle="collapse"
+              href="projectEdit"
+              role="button"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+            >
+              Update Projects
+            </a>
+          </p>{" "}
+          <p>
+            <a
+              className="btn btn-primary"
+              data-toggle="collapse"
+              href="certificationEdit"
+              role="button"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+            >
+              Update Certifications
+            </a>
+          </p>
+        </div>
         {user
           ? user.projects.map((project) => (
               <div
@@ -208,7 +268,6 @@ export default function Account() {
               </div>
             ))
           : ""}
-
         <div className="container d-flex flex-row" style={{ padding: "20px" }}>
           <div className="col-sm-6">
             <div
@@ -224,18 +283,21 @@ export default function Account() {
                 color: "white",
               }}
             >
-              {" "}
-              <h1>Skills</h1>
+              <div className="col">
+                <h1>Skills</h1>
+              </div>
               {user
                 ? user.skills.map((skill) => (
-                    <div>
-                      <div>
-                        <>Name</>
-                        <h5>{skill.name}</h5>
-                      </div>
+                    <div
+                      className="container d-flex flex-row"
+                      style={{ padding: "20px" }}
+                    >
+                      <h3 className="col">
+                        Name<h5>{skill.name}</h5>
+                      </h3>
                     </div>
                   ))
-                : "No Skills to display"}
+                : ""}
             </div>
           </div>
         </div>

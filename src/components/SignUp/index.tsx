@@ -8,6 +8,8 @@ export default function SignUp() {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [isRecruiter, setIsRecruiter] = useState<boolean>(false);
+
   const dispatch: AppDispatch = useDispatch();
   const token = useSelector(selectToken);
   const navigate = useNavigate();
@@ -20,11 +22,12 @@ export default function SignUp() {
 
   function submitForm(event: FormEvent): void {
     event.preventDefault();
-    dispatch(signUp(name, email, password));
+    dispatch(signUp(name, email, password, isRecruiter));
 
     setEmail("");
     setPassword("");
     setName("");
+    setIsRecruiter(false);
   }
   return (
     <form onSubmit={submitForm}>
@@ -83,18 +86,40 @@ export default function SignUp() {
                 required
               />
             </div>
-            <div className="d-grid">
-              <button
-                type="submit"
-                className="btn btn-primary"
-                onClick={submitForm}
-              >
-                Sign Up
-              </button>
+            <div className="mb-3">
+              <div className="mb-3">
+                <label>Password</label>
+                <input
+                  type="password"
+                  className="form-control"
+                  placeholder="Enter password"
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
+                  required
+                />
+              </div>
+              {/* <div>
+                <label> Are you a Recruiter?</label>
+                <input
+                  type="checkbox"
+                  checked={isRecruiter}
+                  onChange={(event) => setIsRecruiter(event.target.value)}
+                />
+              </div> */}
+
+              <div className="d-grid">
+                <button
+                  type="submit"
+                  className="btn btn-primary"
+                  onClick={submitForm}
+                >
+                  Sign Up
+                </button>
+              </div>
+              <p>
+                Already registered? <a href="/logIn">LogIn</a>
+              </p>
             </div>
-            <p>
-              Already registered? <a href="/logIn">LogIn</a>
-            </p>
           </div>
         </div>
       </div>

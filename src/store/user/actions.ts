@@ -12,6 +12,7 @@ import { AnyAction, Dispatch, ThunkAction } from "@reduxjs/toolkit";
 import { selectToken } from "./selectors";
 import { showMessageWithTimeout } from "../appState/actions";
 import { appDoneLoading, appLoading, setMessage } from "../appState/slice";
+import ApplyForm from "../../components/ApplyForm";
 
 // Get the users
 export const fetchUsers = (): ThunkAction<
@@ -34,7 +35,8 @@ export const fetchUsers = (): ThunkAction<
 export const signUp = (
   name: string,
   email: string,
-  password: string
+  password: string,
+  isRcruiter: boolean
 ): ThunkAction<Promise<void>, any, any, AnyAction> => {
   return async (dispatch): Promise<void> => {
     try {
@@ -42,25 +44,19 @@ export const signUp = (
         name,
         email,
         password,
+        isRcruiter,
       });
       console.log("signUp", response);
       dispatch(
         loginSuccess({ token: response.data.token, user: response.data.user })
       );
       dispatch(
-        showMessageWithTimeout("success", true, "account created", 15000)
+        showMessageWithTimeout("success", true, "account created", 1500)
       );
       dispatch(appDoneLoading());
     } catch (error) {
       if (error instanceof Error) {
         console.log(error);
-        //  dispatch(
-        //    setMessage({
-        //      variant: "danger",
-        //      dismissable: true,
-        //      text: error.response.data.message,
-        //    })
-        //  );
       }
     }
   };
@@ -124,9 +120,9 @@ export const login = (
   };
 };
 //   const {
-//   profile: { space },
+//   profile: { skills },
 //   token,
-// } = getState()
+// } = getState().user
 // update user skills
 // export const updateMySkills = (name: string) => {
 //   return async (
@@ -142,7 +138,7 @@ export const login = (
 //         profile: { skills },
 //         token,
 //       } = getState().user;
-//       const response = await axios.patch(
+//       const response = await axios.post(
 //         `${apiUrl}/skills/${skills.id}`,
 //         {
 //           name,
@@ -161,3 +157,32 @@ export const login = (
 //     }
 //   };
 // };
+
+// send Email
+export const sendEmail = (
+  name: string,
+  email: string,
+  subject: string,
+  message: string
+) => {
+  return async (dispatch: Dispatch<AnyAction>): Promise<void> => {
+    try {
+      dispatch(appLoading());
+
+      const response = await axios.post(`${apiUrl}/contact`, {
+        name,
+        email,
+        subject,
+        message,
+      });
+
+      dispatch(appDoneLoading());
+    } catch (error) {
+      let errorMessage = "Failed to do something ";
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+      console.log(errorMessage);
+    }
+  };
+};

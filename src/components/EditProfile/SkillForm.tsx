@@ -9,7 +9,7 @@ import { AppDispatch } from "../../store";
 export default function SkillForm() {
   const skill = useSelector(selectUsers);
   const dispatch: AppDispatch = useDispatch();
-  const [name, setName] = useState("");
+  const [name, setName] = useState<string>("");
 
   function submitForm(event: FormEvent): void {
     event.preventDefault();

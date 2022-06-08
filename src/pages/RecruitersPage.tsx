@@ -27,8 +27,6 @@ export default function RecruitersPage() {
       }}
     >
       <div>
-        <h1>Recruiters Page</h1>
-
         {recruiters
           ? recruiters.map((recruiter: Recruiter) => {
               return (

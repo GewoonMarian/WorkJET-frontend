@@ -16,7 +16,6 @@ export default function UsersPage() {
 
   return (
     <div>
-      <h1>Home Page</h1>
       {news
         ? news.news.map((news: News) => {
             return (

@@ -1,18 +1,26 @@
 import { useState } from "react";
 import { FormEvent } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../store";
+import { sendEmail } from "../../store/user/actions";
+import { selectToken } from "../../store/user/selectors";
+
 const ApplyForm = () => {
   const dispatch: AppDispatch = useDispatch();
+
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [subject, setSubject] = useState<string>("");
 
+  const token = useSelector(selectToken);
+
+  if (!token) return null;
+
   function submitForm(event: FormEvent): void {
     event.preventDefault();
 
-    dispatch(apply(name, email, subject, message));
+    dispatch(sendEmail(name, email, subject, message));
 
     setName("");
     setEmail("");
@@ -21,7 +29,7 @@ const ApplyForm = () => {
   }
 
   return (
-    <form onSubmit={submitForm}>
+    <form>
       <div
         className="Container"
         style={{

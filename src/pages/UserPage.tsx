@@ -32,7 +32,6 @@ export default function UsersPage() {
       }}
     >
       <div>
-        <h1>UsersPage</h1>
         {users
           ? users.map((user: User) => {
               return (

@@ -165,25 +165,6 @@ export const sendEmail = (
   };
 };
 
-// Get skills
-
-export const getAllSkills = (): ThunkAction<
-  Promise<void>,
-  any,
-  any,
-  AnyAction
-> => {
-  return async (dispatch: Dispatch<AnyAction>): Promise<void> => {
-    try {
-      const response = await axios.get(`${apiUrl}/skills`);
-      console.log("first", response);
-      dispatch(response.data.rows);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-};
-
 // Update profile
 
 export const updateMySkills = (

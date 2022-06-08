@@ -1,23 +1,11 @@
-import {
-  FormEvent,
-  JSXElementConstructor,
-  ReactElement,
-  ReactFragment,
-  ReactPortal,
-  useEffect,
-  useState,
-} from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateMySkills } from "../../store/user/actions";
 import { AppDispatch } from "../../store";
-import { getAllSkills } from "../../store/user/actions";
 import axios from "axios";
 import Pagination from "./Pagination";
-import { idText } from "typescript";
 export default function SkillForm() {
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   // const [skills, setSkills] = useState<number[] | null | undefined>(null);
 
   const [allSkills, setAllSkills] = useState<any>();
@@ -33,14 +21,13 @@ export default function SkillForm() {
       `http://localhost:4000/skills?limit=${skillsPerPage}&offset=${offset}`
     );
     console.log("prod", response);
-    setOffset(offset + 10);
     setLoading(false);
     setAllSkills(response.data.rows);
   }
 
   useEffect(() => {
     getSkills();
-  }, []);
+  }, [offset]);
 
   // useEffect(() => {
   //   dispatch(getAllSkills());
@@ -63,11 +50,10 @@ export default function SkillForm() {
         )}
         <div>
           <Pagination
-            // offset={offset}
-            // setOffset={setOffset}
+            offset={offset}
+            setOffset={setOffset}
             skillsPerPage={skillsPerPage}
             amountOfSkills={allSkills}
-            getSkills={getSkills}
           />
         </div>
       </>

@@ -51,7 +51,7 @@ export default function UsersPage() {
                       className="d-flex flex-row"
                       style={{
                         width: "60rem",
-                        height: "30rem",
+                        minHeight: "30rem",
                         backgroundColor: "#212529",
                         boxShadow: "5px 40px 60px #26ff04",
                         color: "#52be67",

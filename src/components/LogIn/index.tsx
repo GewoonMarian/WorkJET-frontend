@@ -42,7 +42,7 @@ export default function LogIn() {
           className="card "
           style={{
             width: "40rem",
-            backgroundColor: "transparent",
+            backgroundColor: "yellow",
             boxShadow: "5px 40px 60px #000000",
             display: "flex",
             justifyContent: "center",

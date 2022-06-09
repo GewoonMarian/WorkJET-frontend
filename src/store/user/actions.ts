@@ -6,6 +6,9 @@ import {
   logOut,
   tokenStillValid,
   skillUpdated,
+  certificationUpdated,
+  projectUpdated,
+  profileUpdated,
 } from "./slice";
 import { User } from "../../types";
 import { AnyAction, Dispatch, ThunkAction } from "@reduxjs/toolkit";
@@ -165,10 +168,11 @@ export const sendEmail = (
   };
 };
 
-// Update profile
+// Update skills
 
 export const updateMySkills = (
-  skills: number[] | null | undefined
+  skills: number[] | null | undefined,
+  extraSkill: string
 ): ThunkAction<Promise<void>, any, any, AnyAction> => {
   return async (dispatch: Dispatch<AnyAction>, getState): Promise<void> => {
     try {
@@ -178,16 +182,123 @@ export const updateMySkills = (
 
       const response = await axios.post(`${apiUrl}/users/${user.id}/skill`, {
         skills,
+        extraSkill,
       });
 
-      console.log("update skill", response);
-      // dispatch(
-      //   showMessageWithTimeout("success", false, response.data.message, 3000)
-      // );
+      console.log("update skill", response.data);
+
       dispatch(skillUpdated(response.data.skill));
       dispatch(appDoneLoading());
     } catch (e: any) {
       console.log(e.message);
+    }
+  };
+};
+
+// Add certification
+export const postCertification = (
+  title: string,
+  date: string
+): ThunkAction<Promise<void>, any, any, AnyAction> => {
+  return async (dispatch: Dispatch<AnyAction>, getState): Promise<void> => {
+    try {
+      const user = getState().users.profile;
+
+      dispatch(appLoading());
+
+      const response = await axios.post(
+        `${apiUrl}/certifications/${user.id}/certification`,
+        {
+          title,
+          date,
+        }
+      );
+
+      console.log("POST CERTIFICATION", response);
+
+      dispatch(certificationUpdated(response.data.certification));
+      dispatch(appDoneLoading());
+    } catch (error) {
+      let errorMessage = "Failed to do something ";
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+      console.log(errorMessage);
+    }
+  };
+};
+
+// Post a project
+export const postProject = (
+  name: string,
+  description: string,
+  linkUrl: string
+): ThunkAction<Promise<void>, any, any, AnyAction> => {
+  return async (dispatch: Dispatch<AnyAction>, getState): Promise<void> => {
+    try {
+      const user = getState().users.profile;
+
+      dispatch(appLoading());
+
+      const response = await axios.post(
+        `${apiUrl}/projects/${user.id}/project`,
+        {
+          name,
+          description,
+          linkUrl,
+        }
+      );
+
+      console.log("POST PROJECT", response);
+
+      dispatch(projectUpdated(response.data.project));
+      dispatch(appDoneLoading());
+    } catch (error) {
+      let errorMessage = "Failed to do something ";
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+      console.log(errorMessage);
+    }
+  };
+};
+
+// Update  user profile
+export const postProfileDesc = (
+  name: string,
+  email: string,
+  password: string,
+  location: string,
+  description: string,
+  imageUrl: string,
+  isAvailable: boolean
+): ThunkAction<Promise<void>, any, any, AnyAction> => {
+  return async (dispatch: Dispatch<AnyAction>, getState): Promise<void> => {
+    try {
+      const user = getState().users.profile;
+
+      dispatch(appLoading());
+
+      const response = await axios.put(`${apiUrl}/users/${user.id}/user`, {
+        name,
+        email,
+        password,
+        location,
+        description,
+        imageUrl,
+        isAvailable,
+      });
+
+      console.log("POST NEW USER", response);
+
+      dispatch(profileUpdated(response.data.profile));
+      dispatch(appDoneLoading());
+    } catch (error) {
+      let errorMessage = "Failed to do something ";
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+      console.log(errorMessage);
     }
   };
 };

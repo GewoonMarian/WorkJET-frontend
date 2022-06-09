@@ -36,6 +36,15 @@ export const userSlice = createSlice({
     skillUpdated: (state, action) => {
       state.profile = action.payload;
     },
+    certificationUpdated: (state, action) => {
+      state.profile = action.payload;
+    },
+    projectUpdated: (state, action) => {
+      state.profile = action.payload;
+    },
+    profileUpdated: (state, action) => {
+      state.profile = action.payload;
+    },
   },
 });
 
@@ -45,6 +54,9 @@ export const {
   logOut,
   tokenStillValid,
   skillUpdated,
+  certificationUpdated,
+  projectUpdated,
+  profileUpdated,
 } = userSlice.actions;
 
 export default userSlice.reducer;

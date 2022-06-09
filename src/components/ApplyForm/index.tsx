@@ -42,12 +42,12 @@ const ApplyForm = () => {
           className="card "
           style={{
             width: "40rem",
-            backgroundColor: "transparent",
+            backgroundColor: "#2bb1af",
             boxShadow: "5px 40px 60px #000000",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            color: "lightgray",
+            color: "white",
           }}
         >
           <div className="card-body">

@@ -1,10 +1,8 @@
-import React from "react";
-
 const Pagination = ({
   offset,
   setOffset,
   skillsPerPage,
-  amountOfProducts,
+  amountOfSkills,
 }: any) => {
   return (
     <div>
@@ -19,7 +17,7 @@ const Pagination = ({
       <button
         style={{ color: "red", background: "yellow" }}
         onClick={() => setOffset(offset + skillsPerPage)}
-        disabled={amountOfProducts < 5}
+        disabled={amountOfSkills < 5}
       >
         next page
       </button>

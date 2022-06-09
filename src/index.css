@@ -2,7 +2,7 @@ body {
   /* background: #00b09b; */
   /* background: -webkit-linear-gradient(to right, red 10%, 30%, blue 90%); */
   /* background: linear-gradient(to right, red 10%, 30%, blue 90%); */
-  /* min-height: 100vh; */
+  min-height: 100vh;
   background-image: linear-gradient(
     to top,
     #0e0d0d 0%,

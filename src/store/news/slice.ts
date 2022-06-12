@@ -14,7 +14,6 @@ export const newsSlice = createSlice({
   initialState,
   reducers: {
     fechedNews: (state, action: PayloadAction<News[]>) => {
-      console.log("what's the action", action);
       state.news = action.payload;
     },
   },

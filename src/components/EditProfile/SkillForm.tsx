@@ -4,8 +4,8 @@ import { updateMySkills } from "../../store/user/actions";
 import { AppDispatch } from "../../store";
 import axios from "axios";
 import Pagination from "./Pagination";
-// import "./style.scss";
-import "./styles/skills.scss";
+import "./styles/addSkill.scss";
+import "./styles/skills.css";
 import { GiSkills } from "react-icons/gi";
 
 export default function SkillForm() {
@@ -60,28 +60,31 @@ export default function SkillForm() {
       <>
         {!loading && allSkills ? (
           allSkills.map((skill: { name: string; id: number }) => (
-            <main>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "300px",
+                padding: "20px",
+                background: "#818d8d",
+                margin: "25px auto",
+                boxShadow: "0px 0px 15px rgba(0, 0, 0, 0.22)",
+                fontSize: "20px",
+              }}
+            >
+              {" "}
               {skill.name}
-              <input
-                type="checkbox"
-                defaultChecked={checked}
-                onChange={(e) => onCheckboxClick(e)}
-                name={`${skill.id}`}
-                id="id"
-              />
-              <label htmlFor="id" className="checkbox">
-                <div className="checkbox__inner">
-                  <div className="green__ball"></div>
-                </div>
-              </label>
-              <div className="checkbox__text">
-                <span>turned</span>
-                <div className="checkbox__text--options">
-                  <span className="off">off</span>
-                  <span className="on">on</span>
-                </div>
+              <div className="check">
+                <input
+                  type="checkbox"
+                  defaultChecked={checked}
+                  name={`${skill.id}`}
+                  onChange={(e) => onCheckboxClick(e)}
+                />
+                <label></label>{" "}
               </div>
-            </main>
+            </div>
           ))
         ) : (
           <div>No more items</div>

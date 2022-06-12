@@ -24,11 +24,9 @@ export default function CertificationForm() {
   }
   return (
     <Form className="form-style-6">
-      <h1 className="mt-5 mb-5" style={{ color: "white" }}>
-        Add a Certification
-      </h1>
+      <h1 className="mt-5 mb-5">Add a Certification</h1>
       <Form.Group>
-        <Form.Label style={{ color: "white" }}>Title</Form.Label>
+        <Form.Label>Title</Form.Label>
         <Form.Control
           value={title}
           onChange={(event) => setTitle(event.target.value)}
@@ -38,7 +36,7 @@ export default function CertificationForm() {
         />
       </Form.Group>
       <Form.Group>
-        <Form.Label style={{ color: "white" }}>Date</Form.Label>
+        <Form.Label>Date</Form.Label>
         <Form.Control
           value={date}
           onChange={(event) => setDate(event.target.value)}

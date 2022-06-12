@@ -49,7 +49,6 @@ export const signUp = (
           password,
           isRcruiter,
         });
-        console.log("signUp rec", response);
         dispatch(
           loginSuccess({
             token: response.data.token,
@@ -69,14 +68,74 @@ export const signUp = (
           loginSuccess({ token: response.data.token, user: response.data.user })
         );
         dispatch(
-          showMessageWithTimeout("success", true, "account created", 1500)
+          showMessageWithTimeout("success", true, "account created", 2500)
         );
         dispatch(appDoneLoading());
       }
-    } catch (error) {
-      if (error instanceof Error) {
-        console.log(error);
+    } catch (error: any) {
+      if (error.response) {
+        console.log(error.response.data.message);
+        dispatch(
+          setMessage({
+            variant: "danger",
+            dismissable: true,
+            text: error.response.data.message,
+          })
+        );
+      } else {
+        console.log(error.message);
+        dispatch(
+          setMessage({
+            variant: "danger",
+            dismissable: true,
+            text: error.message,
+          })
+        );
       }
+      dispatch(appDoneLoading());
+    }
+  };
+};
+
+// Sign In
+export const login = (
+  email: string,
+  password: string
+): ThunkAction<Promise<void>, any, any, AnyAction> => {
+  return async (dispatch) => {
+    dispatch(appLoading());
+
+    try {
+      const response = await axios.post(`${apiUrl}/users/login`, {
+        email,
+        password,
+      });
+
+      dispatch(
+        loginSuccess({ token: response.data.token, user: response.data.user })
+      );
+      dispatch(showMessageWithTimeout("success", false, "Welcome Back ", 3500));
+    } catch (error: any) {
+      if (error.response) {
+        console.log(error.response.data.message);
+        dispatch(
+          setMessage({
+            variant: "danger",
+            dismissable: true,
+            text: error.response.data.message,
+          })
+        );
+      } else {
+        console.log(error.message);
+        dispatch(
+          setMessage({
+            variant: "danger",
+            dismissable: true,
+            text: error.response.data.message,
+          })
+        );
+      }
+      dispatch(appDoneLoading());
     }
   };
 };
@@ -109,32 +168,6 @@ export const getUserWithStoredToken = (): ThunkAction<
 
       dispatch(logOut());
       dispatch(appDoneLoading());
-    }
-  };
-};
-
-// Sign In
-export const login = (
-  email: string,
-  password: string
-): ThunkAction<Promise<void>, any, any, AnyAction> => {
-  return async (dispatch: Dispatch<AnyAction>, getState) => {
-    try {
-      const response = await axios.post(`${apiUrl}/users/login`, {
-        email,
-        password,
-      });
-
-      dispatch(
-        loginSuccess({ token: response.data.token, user: response.data.user })
-      );
-      // dispatch(showMessageWithTimeout("success", true, "Welcome Back", 1500));
-    } catch (error) {
-      let errorMessage = "Failed to do something ";
-      if (error instanceof Error) {
-        errorMessage = error.message;
-      }
-      console.log(errorMessage);
     }
   };
 };

@@ -207,7 +207,7 @@ export default function Account() {
                 alignItems: "center",
                 width: "60rem",
                 minHeight: "20rem",
-                backgroundColor: "#809e97",
+                backgroundColor: "transparent",
                 boxShadow: "5px 40px 60px #000000",
                 color: "white",
               }}
@@ -217,7 +217,15 @@ export default function Account() {
               </div>
               {user
                 ? user.projects.map((project) => (
-                    <>
+                    <div
+                      style={{
+                        width: "500px",
+                        padding: "30px",
+                        background: "#818d8d",
+                        margin: "50px auto",
+                        boxShadow: "0px 0px 15px rgba(0, 0, 0, 0.22)",
+                      }}
+                    >
                       <h3 className="column">
                         Name<h5>{project.name}</h5>
                       </h3>
@@ -233,7 +241,7 @@ export default function Account() {
                           </a>
                         </h5>
                       </h3>
-                    </>
+                    </div>
                   ))
                 : ""}
             </div>
@@ -260,7 +268,16 @@ export default function Account() {
               </div>
               {user
                 ? user.certifications.map((certification) => (
-                    <div className="d-flex flex-row">
+                    <div
+                      className="d-flex flex-row"
+                      style={{
+                        width: "500px",
+                        padding: "30px",
+                        background: "#818d8d",
+                        margin: "50px auto",
+                        boxShadow: "0px 0px 15px rgba(0, 0, 0, 0.22)",
+                      }}
+                    >
                       <h3 className="col">
                         Name<h5>{certification.title}</h5>
                       </h3>
@@ -297,7 +314,13 @@ export default function Account() {
                 ? user.skills.map((skill) => (
                     <div
                       className="container d-flex flex-row"
-                      style={{ padding: "5px" }}
+                      style={{
+                        width: "250px",
+                        padding: "15px",
+                        background: "#818d8d",
+                        margin: "20px auto",
+                        boxShadow: "0px 0px 15px rgba(0, 0, 0, 0.22)",
+                      }}
                     >
                       <h3 className="col">
                         Name<h5>{skill.name}</h5>

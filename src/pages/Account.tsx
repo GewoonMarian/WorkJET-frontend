@@ -35,7 +35,7 @@ export default function Account() {
                 justifyContent: "center",
                 alignItems: "center",
                 width: "60rem",
-                height: "30rem",
+                minHeight: "30rem",
                 backgroundColor: "#586c67",
                 boxShadow: "5px 40px 60px #000000",
                 color: "white",
@@ -140,19 +140,14 @@ export default function Account() {
             </div>
           </div>
         </div>
-        <div>
-          <p>
-            <a
-              className="btn btn-primary"
-              data-toggle="collapse"
-              href="skillEdit"
-              role="button"
-              aria-expanded="false"
-              aria-controls="collapseExample"
-            >
-              Update Skills
-            </a>
-          </p>
+        <div
+          className="d-flex flex-row center"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <p>
             <a
               className="btn btn-primary"
@@ -163,6 +158,18 @@ export default function Account() {
               aria-controls="collapseExample"
             >
               Update Profile
+            </a>
+          </p>
+          <p>
+            <a
+              className="btn btn-primary"
+              data-toggle="collapse"
+              href="skillEdit"
+              role="button"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+            >
+              Update Skills
             </a>
           </p>
           <p>
@@ -190,93 +197,94 @@ export default function Account() {
             </a>
           </p>
         </div>
-        {user
-          ? user.projects.map((project) => (
-              <div
-                className="container d-flex flex-row"
-                style={{ padding: "150px" }}
-              >
-                <div className="col-sm-6">
-                  <div
-                    className="d-flex flex-row"
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      width: "60rem",
-                      height: "20rem",
-                      backgroundColor: "#809e97",
-                      boxShadow: "5px 40px 60px #000000",
-                      color: "white",
-                    }}
-                  >
-                    <div className="col">
-                      <h1>Projects</h1>
-                    </div>
-                    <h3 className="col">
-                      Name<h5>{project.name}</h5>
-                    </h3>
-                    <h3 className="col">
-                      Description<h5>{project.description}</h5>
-                    </h3>
-                    <h3 className="col">
-                      Link
-                      <h5>
-                        {" "}
-                        <a href={project.linkUrl}>
-                          <Button variant="link">Link</Button>
-                        </a>
-                      </h5>
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            ))
-          : ""}
-        {user
-          ? user.certifications.map((certification) => (
-              <div
-                className="container d-flex flex-row"
-                style={{ padding: "20px" }}
-              >
-                <div className="col-sm-6">
-                  <div
-                    className="d-flex flex-row"
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      width: "60rem",
-                      height: "20rem",
-                      backgroundColor: "transparent",
-                      boxShadow: "5px 40px 60px #000000",
-                      color: "white",
-                    }}
-                  >
-                    <div className="col">
-                      <h1>Certifications</h1>
-                    </div>
-                    <h3 className="col">
-                      Name<h5>{certification.title}</h5>
-                    </h3>
-                    <h3 className="col">
-                      Description<h5>{certification.date}</h5>
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            ))
-          : ""}
-        <div className="container d-flex flex-row" style={{ padding: "20px" }}>
+        <div className="container d-flex flex-row">
           <div className="col-sm-6">
             <div
-              className="d-flex flex-row"
+              className="d-flex flex-column"
               style={{
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
                 width: "60rem",
-                height: "20rem",
+                minHeight: "20rem",
+                backgroundColor: "#809e97",
+                boxShadow: "5px 40px 60px #000000",
+                color: "white",
+              }}
+            >
+              <div>
+                <h1>Projects</h1>
+              </div>
+              {user
+                ? user.projects.map((project) => (
+                    <>
+                      <h3 className="column">
+                        Name<h5>{project.name}</h5>
+                      </h3>
+                      <h3 className="column">
+                        Description<h5>{project.description}</h5>
+                      </h3>
+                      <h3 className="column">
+                        Link
+                        <h5>
+                          {" "}
+                          <a href={project.linkUrl}>
+                            <Button variant="link">Link</Button>
+                          </a>
+                        </h5>
+                      </h3>
+                    </>
+                  ))
+                : ""}
+            </div>
+          </div>
+        </div>
+
+        <div className="container d-flex flex-row" style={{ padding: "20px" }}>
+          <div className="col-sm-6">
+            <div
+              className="d-flex flex-column"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "60rem",
+                minHeight: "20rem",
+                backgroundColor: "transparent",
+                boxShadow: "5px 40px 60px #000000",
+                color: "white",
+              }}
+            >
+              <div>
+                <h1>Certifications</h1>
+              </div>
+              {user
+                ? user.certifications.map((certification) => (
+                    <div className="d-flex flex-row">
+                      <h3 className="col">
+                        Name<h5>{certification.title}</h5>
+                      </h3>
+                      <div>
+                        <h3 className="col">
+                          Description<h5>{certification.date}</h5>
+                        </h3>
+                      </div>
+                    </div>
+                  ))
+                : ""}
+            </div>
+          </div>
+        </div>
+        <div className="container d-flex flex-row">
+          <div className="col-sm-6">
+            <div
+              className="d-flex flex-column"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "60rem",
+                minHeight: "20rem",
                 backgroundColor: "transparent",
                 boxShadow: "5px 40px 60px #000000",
                 color: "white",
@@ -289,7 +297,7 @@ export default function Account() {
                 ? user.skills.map((skill) => (
                     <div
                       className="container d-flex flex-row"
-                      style={{ padding: "20px" }}
+                      style={{ padding: "5px" }}
                     >
                       <h3 className="col">
                         Name<h5>{skill.name}</h5>
@@ -303,6 +311,6 @@ export default function Account() {
       </div>
     </div>
   ) : (
-    <p>Loading ...</p>
+    <></>
   );
 }

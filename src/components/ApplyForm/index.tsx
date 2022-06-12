@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../store";
 import { sendEmail } from "../../store/user/actions";
 import { selectToken } from "../../store/user/selectors";
+import "./style.css";
 
 const ApplyForm = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -29,7 +30,7 @@ const ApplyForm = () => {
   }
 
   return (
-    <form>
+    <form className="form-style-4">
       <div
         className="Container"
         style={{

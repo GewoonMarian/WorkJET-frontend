@@ -3,7 +3,9 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { postProfileDesc } from "../../store/user/actions";
 import { AppDispatch } from "../../store";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectToken } from "../../store/user/selectors";
+import "./styles/profile.css";
 
 export default function ProjectForm() {
   const dispatch: AppDispatch = useDispatch();
@@ -14,6 +16,9 @@ export default function ProjectForm() {
   const [description, setDescription] = useState<string>("");
   const [imageUrl, setImageUrl] = useState<string>("");
   const [isAvailable, setIsAvailable] = useState<boolean>(false);
+
+  const token = useSelector(selectToken);
+  if (!token) return null;
 
   function submitForm(event: FormEvent): void {
     event.preventDefault();
@@ -38,12 +43,10 @@ export default function ProjectForm() {
     setIsAvailable(false);
   }
   return (
-    <Form className="mt-5">
-      <h1 className="mt-5 mb-5" style={{ color: "white" }}>
-        Edit your profile
-      </h1>
+    <Form className="form-style-8">
+      <h1 className="mt-5 mb-5">Edit your profile</h1>
       <Form.Group>
-        <Form.Label style={{ color: "white" }}>Name</Form.Label>
+        <Form.Label>Name</Form.Label>
         <Form.Control
           value={name}
           onChange={(event) => setName(event.target.value)}
@@ -53,7 +56,7 @@ export default function ProjectForm() {
         />
       </Form.Group>
       <Form.Group>
-        <Form.Label style={{ color: "white" }}>Email</Form.Label>
+        <Form.Label>Email</Form.Label>
         <Form.Control
           value={email}
           onChange={(event) => setEmail(event.target.value)}
@@ -62,7 +65,7 @@ export default function ProjectForm() {
           required
         />
         <Form.Group>
-          <Form.Label style={{ color: "white" }}>Password</Form.Label>
+          <Form.Label>Password</Form.Label>
           <Form.Control
             value={password}
             onChange={(event) => setPassword(event.target.value)}
@@ -73,7 +76,7 @@ export default function ProjectForm() {
         </Form.Group>
       </Form.Group>
       <Form.Group>
-        <Form.Label style={{ color: "white" }}>Location</Form.Label>
+        <Form.Label>Location</Form.Label>
         <Form.Control
           value={location}
           onChange={(event) => setLocation(event.target.value)}
@@ -84,7 +87,7 @@ export default function ProjectForm() {
       </Form.Group>
 
       <Form.Group>
-        <Form.Label style={{ color: "white" }}>Description</Form.Label>
+        <Form.Label>Description</Form.Label>
         <Form.Control
           value={description}
           onChange={(event) => setDescription(event.target.value)}
@@ -94,7 +97,7 @@ export default function ProjectForm() {
         />
       </Form.Group>
       <Form.Group>
-        <Form.Label style={{ color: "white" }}>Profile Picture</Form.Label>
+        <Form.Label>Profile Picture</Form.Label>
         <Form.Control
           value={imageUrl}
           onChange={(event) => setImageUrl(event.target.value)}
@@ -105,7 +108,7 @@ export default function ProjectForm() {
       </Form.Group>
       <Form.Group>
         <div>
-          <label style={{ color: "white" }}> Are you Available?</label>
+          <label> Are you Available?</label>
           <input
             type="checkbox"
             checked={isAvailable}

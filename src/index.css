@@ -1,17 +1,33 @@
+html,
 body {
-  /* background: #00b09b; */
-  /* background: -webkit-linear-gradient(to right, red 10%, 30%, blue 90%); */
-  /* background: linear-gradient(to right, red 10%, 30%, blue 90%); */
-  min-height: 100vh;
-  background-image: linear-gradient(
-    to top,
-    #0e0d0d 0%,
-    #5bb371 24%,
-    #5dccb2 30%,
-    #62d5e7 46%,
-    #185574 59%,
-    #123082 71%,
-    #16293d 84%,
-    #3c365a 100%
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(
+    -45deg,
+
+    #23a6d5,
+    #23d5ab,
+    #73937e,
+    #25283d,
+    #f5b700,
+    #0a0908,
+    #1e3231
   );
+  background-size: 800% 1000%;
+  animation: gradient 20s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 20%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

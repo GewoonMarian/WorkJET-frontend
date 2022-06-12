@@ -3,13 +3,18 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { postProject } from "../../store/user/actions";
 import { AppDispatch } from "../../store";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectToken } from "../../store/user/selectors";
+import "./styles/project.css";
 
 export default function ProjectForm() {
   const dispatch: AppDispatch = useDispatch();
   const [name, setName] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [linkUrl, setLinkUrl] = useState<string>("");
+
+  const token = useSelector(selectToken);
+  if (!token) return null;
 
   function submitForm(event: FormEvent): void {
     event.preventDefault();
@@ -20,7 +25,7 @@ export default function ProjectForm() {
     setLinkUrl("");
   }
   return (
-    <Form className="mt-5">
+    <Form className="form-style-8">
       <h1 className="mt-5 mb-5" style={{ color: "white" }}>
         Add a Project
       </h1>

@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { AppDispatch } from "../../store";
 import { login } from "../../store/user/actions";
 import { selectToken } from "../../store/user/selectors";
+import "./style.css";
 
 export default function LogIn() {
   const [email, setEmail] = useState<string>("");
@@ -38,18 +39,8 @@ export default function LogIn() {
           alignItems: "center",
         }}
       >
-        <div
-          className="card "
-          style={{
-            width: "40rem",
-            backgroundColor: "yellow",
-            boxShadow: "5px 40px 60px #000000",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <div className="card-body">
+        <div className="login-box">
+          <div className="user-box">
             <h2>LogIn</h2>
 
             <div className="mb-3">
@@ -61,7 +52,7 @@ export default function LogIn() {
                 onChange={(event) => setEmail(event.target.value)}
               />
             </div>
-            <div className="mb-3">
+            <div className="user-box">
               <input
                 type="password"
                 name="password"
@@ -70,15 +61,18 @@ export default function LogIn() {
                 onChange={(event) => setPassword(event.target.value)}
               />
             </div>
-            <Button
-              variant="outline-primary"
-              type="submit"
-              onClick={submitForm}
-            >
-              LogIn
-            </Button>
+
+            <a href="#">
+              <Button
+                variant="outline-primary"
+                type="submit"
+                onClick={submitForm}
+              >
+                LogIn
+              </Button>
+            </a>
             <div>
-              <p>
+              <p style={{ color: "white" }}>
                 Click here to <a href="/signup">SignUp</a>
               </p>
             </div>

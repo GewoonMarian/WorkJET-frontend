@@ -3,12 +3,17 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { postCertification } from "../../store/user/actions";
 import { AppDispatch } from "../../store";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectToken } from "../../store/user/selectors";
+import "./styles/certification.css";
 
 export default function CertificationForm() {
   const dispatch: AppDispatch = useDispatch();
   const [title, setTitle] = useState<string>("");
   const [date, setDate] = useState<string>("");
+  const token = useSelector(selectToken);
+
+  if (!token) return null;
 
   function submitForm(event: FormEvent): void {
     event.preventDefault();
@@ -18,7 +23,7 @@ export default function CertificationForm() {
     setDate("");
   }
   return (
-    <Form className="mt-5">
+    <Form className="form-style-6">
       <h1 className="mt-5 mb-5" style={{ color: "white" }}>
         Add a Certification
       </h1>

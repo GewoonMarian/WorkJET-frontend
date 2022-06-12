@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useState } from "react";
 import { AppDispatch } from "../../store";
 import { useNavigate } from "react-router-dom";
 import { selectToken } from "../../store/user/selectors";
+import "./style.css";
 export default function SignUp() {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -41,21 +42,10 @@ export default function SignUp() {
           alignItems: "center",
         }}
       >
-        <div
-          className="card "
-          style={{
-            width: "40rem",
-            backgroundColor: "yellow",
-            boxShadow: "5px 40px 60px #000000",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <div className="card-body">
+        <div>
+          <div className="login-box">
             <h3>Sign Up</h3>
-            <div className="mb-3">
-              <label>Name</label>
+            <div className="user-box">
               <input
                 type="text"
                 className="form-control"
@@ -66,8 +56,7 @@ export default function SignUp() {
               />
             </div>
 
-            <div className="mb-3">
-              <label>Email address</label>
+            <div className="user-box">
               <input
                 type="email"
                 className="form-control"
@@ -77,8 +66,7 @@ export default function SignUp() {
                 required
               />
             </div>
-            <div className="mb-3">
-              <label>Password</label>
+            <div className="user-box">
               <input
                 type="password"
                 className="form-control"
@@ -98,14 +86,16 @@ export default function SignUp() {
                 />
               </div>
 
-              <div className="d-grid">
-                <button
-                  type="submit"
-                  className="btn btn-primary"
-                  onClick={submitForm}
-                >
-                  Sign Up
-                </button>
+              <div>
+                <a href="#">
+                  <button
+                    type="submit"
+                    className="btn btn-primary"
+                    onClick={submitForm}
+                  >
+                    Sign Up
+                  </button>
+                </a>
               </div>
               <p>
                 Already registered? <a href="/logIn">LogIn</a>

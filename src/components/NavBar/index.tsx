@@ -37,11 +37,7 @@ export default function NavBar() {
           </Container>
         </Navbar>
       ) : (
-        <a href="/logIn">
-          <h4>
-            <Button variant="success">LogIn</Button>
-          </h4>
-        </a>
+        ""
       )}
     </div>
   );

@@ -7,6 +7,9 @@ import { selectNews } from "../store/news/selectors";
 import { News } from "../types";
 import { selectToken } from "../store/user/selectors";
 import { useNavigate } from "react-router-dom";
+import Box from "@mui/joy/Box";
+import Sheet from "@mui/joy/Sheet";
+import AspectRatio from "@mui/joy/AspectRatio";
 
 export default function UsersPage() {
   const dispatch: AppDispatch = useDispatch();
@@ -27,36 +30,61 @@ export default function UsersPage() {
 
   return (
     <div>
-      {news
-        ? news.news.map((news: News) => {
-            return (
-              <div className="container" style={{ paddingTop: "2%" }}>
-                <div className="row">
-                  <div className="col-sm-14">
-                    <div
-                      className="card"
-                      style={{
-                        backgroundColor: "transparent",
-                        boxShadow: "5px 40px 60px #000000",
-                        color: "white",
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "30px",
+          gap: 1,
+          overflow: "auto",
+          objectFit: "cover",
+
+          scrollSnapType: "x mandatory",
+          "& > *": {
+            scrollSnapAlign: "center",
+          },
+          "::-webkit-scrollbar": { display: "none" },
+        }}
+      >
+        {news
+          ? news.news.map((news: News) => {
+              return (
+                <div>
+                  <Sheet
+                    key={news.id}
+                    variant="outlined"
+                    sx={{
+                      gap: 2,
+                      p: 2,
+
+                      borderRadius: "sm",
+                      minHeight: "500px",
+                      width: "600px",
+                      background: "#528691",
+                    }}
+                  >
+                    <AspectRatio
+                      ratio="1"
+                      sx={{
+                        borderRadius: "sm",
+                        overflow: "auto",
                       }}
                     >
-                      <div className="card-body">
-                        <NewsCard
-                          id={news.id}
-                          title={news.title}
-                          imageUrl={news.imageUrl}
-                          description={news.description}
-                          linkUrl={news.linkUrl}
-                        />
-                      </div>
-                    </div>
-                  </div>
+                      <NewsCard
+                        id={news.id}
+                        title={news.title}
+                        imageUrl={news.imageUrl}
+                        description={news.description}
+                        linkUrl={news.linkUrl}
+                      />
+                    </AspectRatio>
+                  </Sheet>
                 </div>
-              </div>
-            );
-          })
-        : "Loading"}
+              );
+            })
+          : "Loading"}
+      </Box>
     </div>
   );
 }

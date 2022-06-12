@@ -4,20 +4,20 @@ import { updateMySkills } from "../../store/user/actions";
 import { AppDispatch } from "../../store";
 import axios from "axios";
 import Pagination from "./Pagination";
-
+// import "./style.scss";
+import "./styles/skills.scss";
 import { GiSkills } from "react-icons/gi";
+
 export default function SkillForm() {
   const dispatch: AppDispatch = useDispatch();
   const [skills, setSkills] = useState<number[]>([]);
   const [extraSkill, setExtraSkill] = useState<string>("");
 
   const [allSkills, setAllSkills] = useState<any>();
-  const [skillsPerPage] = useState<number>(20);
+  const [skillsPerPage] = useState<number>(10);
   const [offset, setOffset] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
   const [checked] = useState<boolean>(false);
-
-  console.log("offset", offset);
 
   async function getSkills(): Promise<void> {
     setLoading(true);
@@ -60,18 +60,28 @@ export default function SkillForm() {
       <>
         {!loading && allSkills ? (
           allSkills.map((skill: { name: string; id: number }) => (
-            <div className="card">
+            <main>
               {skill.name}
-              <label>
-                <input
-                  type="checkbox"
-                  defaultChecked={checked}
-                  onChange={(e) => onCheckboxClick(e)} // everytime someone checks a box I push that id into an array
-                  name={`${skill.id}`}
-                />
-                Check Me!
+              <input
+                type="checkbox"
+                defaultChecked={checked}
+                onChange={(e) => onCheckboxClick(e)}
+                name={`${skill.id}`}
+                id="id"
+              />
+              <label htmlFor="id" className="checkbox">
+                <div className="checkbox__inner">
+                  <div className="green__ball"></div>
+                </div>
               </label>
-            </div>
+              <div className="checkbox__text">
+                <span>turned</span>
+                <div className="checkbox__text--options">
+                  <span className="off">off</span>
+                  <span className="on">on</span>
+                </div>
+              </div>
+            </main>
           ))
         ) : (
           <div>No more items</div>
@@ -93,8 +103,8 @@ export default function SkillForm() {
             </h4>
 
             <input
-              type="text"
-              name="name"
+              type="add"
+              name="add"
               value={extraSkill}
               onChange={(e) => setExtraSkill(e.target.value)}
             />

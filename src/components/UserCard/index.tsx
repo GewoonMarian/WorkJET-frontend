@@ -1,5 +1,6 @@
 import { Badge } from "react-bootstrap";
 import { User } from "../../types/user";
+import { HiOutlineMailOpen } from "react-icons/hi";
 
 export default function UserCard(props: User) {
   return (
@@ -7,12 +8,19 @@ export default function UserCard(props: User) {
       <p>
         <strong>{props.name}</strong>
       </p>
-      <p>
-        <strong>{props.email}</strong>
-      </p>
-      <p>
-        <strong>{props.location}</strong>
-      </p>
+      <div>
+        <>
+          <HiOutlineMailOpen />
+        </>
+        <p>
+          <strong>{props.email} </strong>
+        </p>
+      </div>
+      <div>
+        <p>
+          <strong>{props.location}</strong>
+        </p>
+      </div>
       <p>
         Available:
         <Badge bg="success">{props.isAvailable ? "✅" : "📛"}</Badge>

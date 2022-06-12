@@ -10,13 +10,3 @@ export interface User {
   certifications: Certification[];
   skills: Skill[];
 }
-
-// export const User: User = {
-//   projects: {
-//     id: Key | null | undefined,
-//     name: string,
-
-//     linkUrl: string,
-//     description: string,
-//   },
-// };

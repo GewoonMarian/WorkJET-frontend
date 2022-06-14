@@ -60,7 +60,6 @@ export const signUp = (
           name,
           email,
           password,
-          isRcruiter,
         });
         console.log("signUp user", response);
 

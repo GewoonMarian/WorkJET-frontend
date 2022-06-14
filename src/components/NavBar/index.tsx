@@ -2,7 +2,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { GiJetPack } from "react-icons/gi";
-import { Button, Nav } from "react-bootstrap";
+import { Nav } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { selectToken } from "../../store/user/selectors";
 

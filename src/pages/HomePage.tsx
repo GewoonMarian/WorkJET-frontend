@@ -7,10 +7,8 @@ import { selectNews } from "../store/news/selectors";
 import { News } from "../types";
 import { selectToken } from "../store/user/selectors";
 import { useNavigate } from "react-router-dom";
-import Box from "@mui/joy/Box";
-import Sheet from "@mui/joy/Sheet";
-import AspectRatio from "@mui/joy/AspectRatio";
-// import "./style.css";
+import Footer from "../components/Footer";
+import "./style.css";
 
 export default function UsersPage() {
   const dispatch: AppDispatch = useDispatch();
@@ -31,21 +29,66 @@ export default function UsersPage() {
 
   return (
     <div>
-      {news
-        ? news.news.map((news: News) => {
-            return (
-              <div>
-                <NewsCard
-                  id={news.id}
-                  title={news.title}
-                  imageUrl={news.imageUrl}
-                  description={news.description}
-                  linkUrl={news.linkUrl}
-                />
-              </div>
-            );
-          })
-        : "Loading"}
+      <div className="news-card">
+        {news
+          ? news.news.map((news: News) => {
+              return (
+                <>
+                  <ul className="cards">
+                    <li>
+                      <a href="" className="card">
+                        <img
+                          src={news.imageUrl}
+                          className="card__image"
+                          alt=""
+                        />
+                        <div className="card__overlay">
+                          <div className="card__header">
+                            <svg
+                              className="card__arc"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path />
+                            </svg>
+                            <img
+                              className="card__thumb"
+                              src="https://previews.123rf.com/images/maxkabakov/maxkabakov1312/maxkabakov131201847/24601637-news-concept-pixelated-words-it-news-on-digital-background-3d-render.jpg"
+                              alt=""
+                            />
+                            <div className="card__header-text">
+                              <h3 className="card__title">{news.title}</h3>
+                              <span className="card__status">3 hour ago</span>
+                            </div>
+                          </div>
+                          <p className="card__description">
+                            {news.description}
+                          </p>
+                          <div className="newsButton">
+                            <NewsCard
+                              linkUrl={news.linkUrl}
+                              id={undefined}
+                              title={""}
+                              imageUrl={""}
+                              description={""}
+                            />
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                  {/* <NewsCard
+                    id={news.id}
+                    title={news.title}
+                    imageUrl={news.imageUrl}
+                    description={news.description}
+                    linkUrl={news.linkUrl}
+                  /> */}
+                </>
+              );
+            })
+          : "Loading"}
+      </div>
+      <div>{/* <Footer /> */}</div>
     </div>
   );
 }

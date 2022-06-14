@@ -16,7 +16,7 @@ body {
     #0a0908,
     #1e3231
   );
-  background-size: 800% 1000%;
+  background-size: 1000% 1000%;
   animation: gradient 20s ease infinite;
 }
 

@@ -11,6 +11,7 @@ import CertificationCard from "../components/UserCard/Certification";
 import SkillCard from "../components/UserCard/skills";
 import { useNavigate } from "react-router-dom";
 import { Card } from "react-bootstrap";
+import Footer from "../components/Footer";
 
 export default function UsersPage() {
   const dispatch: AppDispatch = useDispatch();

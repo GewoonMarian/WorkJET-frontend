@@ -1,8 +1,9 @@
 import { News } from "../../types/news";
+import "./style.css";
 
 export default function NewsCard(props: News) {
   return (
-    <div>
+    <div className="newsCardComponent">
       <h1>
         <strong>{props.title}</strong>
       </h1>
@@ -11,15 +12,15 @@ export default function NewsCard(props: News) {
         <button
           type="button"
           className="btn btn-outline-info"
-          style={{ backgroundColor: "lightblue" }}
+          style={{
+            backgroundColor: "gray",
+          }}
         >
           Info
         </button>
       </a>
 
-      <div>
-        <img src={props.imageUrl} alt="" width="600px" />
-      </div>
+      <img src={props.imageUrl} alt="" width="400px" />
       <p>
         <strong>{props.description}</strong>
       </p>

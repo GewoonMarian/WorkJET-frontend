@@ -1,0 +1,16 @@
+/* .newsCardComponent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  width: 400px;
+  height: auto;
+  border: solid 2px rgb(192, 41, 41);
+}
+.newsCardComponent:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.newsCardComponent img {
+  width: 100%;
+} */

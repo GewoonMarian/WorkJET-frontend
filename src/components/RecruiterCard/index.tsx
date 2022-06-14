@@ -18,7 +18,7 @@ export default function RecruiterCard(props: Recruiter) {
         <Badge bg="success">{props.isRecruting ? "✅" : "📛"}</Badge>
       </p>
       <div>
-        <img src={props.imageUrl} alt="" width="200px" />
+        <img src={props.imageUrl} alt="" height="150px" />
       </div>
     </div>
   );

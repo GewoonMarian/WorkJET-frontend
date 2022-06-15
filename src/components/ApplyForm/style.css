@@ -1,9 +1,11 @@
 .form-style-4 {
-  width: 450px;
+  display: "flex";
+  justify-content: "center";
+  align-items: "center";
+  width: "450px";
   font-size: 16px;
-  background: #495c70;
+  background: transparent;
   padding: 30px 30px 15px 30px;
-  border: 5px solid #53687e;
 }
 .form-style-4 input[type="submit"],
 .form-style-4 input[type="button"],
@@ -13,7 +15,7 @@
 .form-style-4 label {
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 16px;
-  color: #fff;
+  color: rgb(3, 2, 2);
 }
 .form-style-4 label {
   display: flex;
@@ -23,14 +25,15 @@
   display: "flex";
   justify-content: "center";
   align-items: "center";
-  /* float: center; */
+  float: center;
   width: 150px;
 }
 .form-style-4 input[type="text"],
-.form-style-4 input[type="email"] {
-  background: transparent;
+.form-style-4 input[type="email"],
+.form-style-4 input[type="subject"] {
+  background: white;
   border: none;
-  border-bottom: 1px dashed #83a4c5;
+  border-bottom: 1px dashed #83c592;
   width: 275px;
   outline: none;
   padding: 0px 0px 0px 0px;

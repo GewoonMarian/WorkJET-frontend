@@ -40,10 +40,11 @@ const ApplyForm = () => {
         }}
       >
         <div
-          className="card "
+          className="card-apply"
           style={{
             width: "40rem",
-            backgroundColor: "#2bb1af",
+            height: "500px",
+            backgroundColor: "#616670",
             boxShadow: "5px 40px 60px #000000",
             display: "flex",
             justifyContent: "center",
@@ -51,7 +52,7 @@ const ApplyForm = () => {
             color: "white",
           }}
         >
-          <div className="card-body">
+          <div className="card-body-apply">
             <div className="mb-3">
               <label>
                 <strong>Name</strong>
@@ -92,7 +93,11 @@ const ApplyForm = () => {
               />
             </div>
             <div className="mb-3 pt-0">
+              <label>
+                <strong>Your Message</strong>
+              </label>
               <textarea
+                style={{ height: "150px" }}
                 placeholder="Your message"
                 className="px-3 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
                 value={message}

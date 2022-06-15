@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import UserCard from "../components/UserCard";
 import { AppDispatch } from "../store";
@@ -10,14 +10,13 @@ import Button from "react-bootstrap/Button";
 import CertificationCard from "../components/UserCard/Certification";
 import SkillCard from "../components/UserCard/skills";
 import { useNavigate } from "react-router-dom";
-import { Card } from "react-bootstrap";
-
+import { TbCertificate } from "react-icons/tb";
+import { AiOutlineFundProjectionScreen } from "react-icons/ai";
+import { GrStackOverflow } from "react-icons/gr";
 export default function UsersPage() {
   const dispatch: AppDispatch = useDispatch();
   const users = useSelector(selectUsers);
-  const [projectOpen, setProjectOpen] = useState<boolean>();
-  const [certificationOpen, setCertificationOpen] = useState<boolean>();
-  const [skillOpen, setSkillOpen] = useState<boolean>();
+
   const token = useSelector(selectToken);
   const navigate = useNavigate();
 
@@ -62,20 +61,18 @@ export default function UsersPage() {
                         }}
                         key={user.id}
                       >
-                        <div style={{ border: "solid red 2px" }}>
-                          <UserCard
-                            id={user.id}
-                            name={user.name}
-                            email={user.email}
-                            location={user.location}
-                            isAvailable={user.isAvailable}
-                            imageUrl={user.imageUrl}
-                            description={user.description}
-                            projects={[]}
-                            certifications={[]}
-                            skills={[]}
-                          />
-                        </div>
+                        <UserCard
+                          id={user.id}
+                          name={user.name}
+                          email={user.email}
+                          location={user.location}
+                          isAvailable={user.isAvailable}
+                          imageUrl={user.imageUrl}
+                          description={user.description}
+                          projects={[]}
+                          certifications={[]}
+                          skills={[]}
+                        />
 
                         <div
                           style={{
@@ -114,85 +111,71 @@ export default function UsersPage() {
                                 }}
                               >
                                 <div>
-                                  <Button
-                                    variant="outline-success"
-                                    onClick={() =>
-                                      setCertificationOpen(!certificationOpen)
-                                    }
-                                  >
-                                    Certifications
-                                  </Button>
-                                  {certificationOpen && (
-                                    <div>
-                                      <Card>
-                                        <CertificationCard
-                                          id={user.id}
-                                          name={""}
-                                          email={""}
-                                          location={""}
-                                          isAvailable={false}
-                                          imageUrl={""}
-                                          description={""}
-                                          projects={[]}
-                                          certifications={user.certifications}
-                                          skills={[]}
-                                        />
-                                      </Card>
-                                    </div>
-                                  )}
+                                  <details>
+                                    <summary>
+                                      <TbCertificate
+                                        size={50}
+                                        style={{ color: "2292A4" }}
+                                      />
+                                    </summary>{" "}
+                                    <CertificationCard
+                                      id={user.id}
+                                      name={""}
+                                      email={""}
+                                      location={""}
+                                      isAvailable={false}
+                                      imageUrl={""}
+                                      description={""}
+                                      projects={[]}
+                                      certifications={user.certifications}
+                                      skills={[]}
+                                    />
+                                  </details>
                                 </div>
                                 <br />
                                 <div>
-                                  <Button
-                                    variant="outline-success"
-                                    onClick={() => setProjectOpen(!projectOpen)}
-                                  >
-                                    Projects
-                                  </Button>
-                                  {projectOpen && (
-                                    <div>
-                                      <Card>
-                                        <ProjectCard
-                                          id={""}
-                                          name={""}
-                                          description={""}
-                                          email={""}
-                                          location={""}
-                                          isAvailable={false}
-                                          imageUrl={""}
-                                          projects={user.projects}
-                                          certifications={[]}
-                                          skills={[]}
-                                        />
-                                      </Card>
-                                    </div>
-                                  )}
+                                  <details>
+                                    <summary>
+                                      <AiOutlineFundProjectionScreen
+                                        size={50}
+                                        style={{ color: "2292A4" }}
+                                      />
+                                    </summary>
+                                    <ProjectCard
+                                      id={""}
+                                      name={""}
+                                      description={""}
+                                      email={""}
+                                      location={""}
+                                      isAvailable={false}
+                                      imageUrl={""}
+                                      projects={user.projects}
+                                      certifications={[]}
+                                      skills={[]}
+                                    />
+                                  </details>
                                 </div>
                                 <div>
-                                  <Button
-                                    variant="outline-success"
-                                    onClick={() => setSkillOpen(!skillOpen)}
-                                  >
-                                    Skills
-                                  </Button>
-                                  {skillOpen && (
-                                    <div>
-                                      <Card>
-                                        <SkillCard
-                                          id={undefined}
-                                          name={""}
-                                          email={""}
-                                          location={""}
-                                          isAvailable={false}
-                                          imageUrl={""}
-                                          description={""}
-                                          projects={[]}
-                                          certifications={[]}
-                                          skills={user.skills}
-                                        />
-                                      </Card>
-                                    </div>
-                                  )}
+                                  <details>
+                                    <summary>
+                                      <GrStackOverflow
+                                        size={45}
+                                        style={{ color: "2292A4" }}
+                                      />
+                                    </summary>{" "}
+                                    <SkillCard
+                                      id={undefined}
+                                      name={""}
+                                      email={""}
+                                      location={""}
+                                      isAvailable={false}
+                                      imageUrl={""}
+                                      description={""}
+                                      projects={[]}
+                                      certifications={[]}
+                                      skills={user.skills}
+                                    />
+                                  </details>
                                 </div>
                               </div>
                             </div>

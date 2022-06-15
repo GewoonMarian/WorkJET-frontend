@@ -334,3 +334,71 @@ export const postProfileDesc = (
     }
   };
 };
+
+// delete skill
+export const deleteOneSkill = (
+  id: number
+): ThunkAction<Promise<void>, any, any, AnyAction> => {
+  return async (dispatch: Dispatch<AnyAction>): Promise<void> => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:4000/skills/delete/${id}`
+      );
+      console.log("Skill deleted?", response.data);
+      // dispatch(deleteSkill(id));
+    } catch (e) {
+      console.error(e);
+    }
+  };
+};
+
+// delete a project
+export const deleteOneProject = (
+  id: number
+): ThunkAction<Promise<void>, any, any, AnyAction> => {
+  return async (dispatch: Dispatch<AnyAction>): Promise<void> => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:4000/projects/delete/${id}`
+      );
+      console.log("Project deleted?", response.data);
+      // dispatch(deleteProject(id));
+    } catch (e) {
+      console.error(e);
+    }
+  };
+};
+
+// delete a certification
+export const deleteOneCertif = (
+  id: number
+): ThunkAction<Promise<void>, any, any, AnyAction> => {
+  return async (dispatch: Dispatch<AnyAction>): Promise<void> => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:4000/certifications/delete/${id}`
+      );
+      console.log("Certification deleted?", response.data);
+      // dispatch(deleteCertification(id));
+    } catch (e) {
+      console.error(e);
+    }
+  };
+};
+
+// delete the user Account
+export const deleteAccount = (
+  id: number
+): ThunkAction<Promise<void>, any, any, AnyAction> => {
+  return async (dispatch: Dispatch<AnyAction>): Promise<void> => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:4000/users/delete/${id}`
+      );
+      console.log("User deleted?", response.data);
+      // dispatch(deleteUser(id));
+    } catch (e) {
+      console.error(e);
+    }
+  };
+};

@@ -105,7 +105,7 @@ export default function SkillForm() {
             </h4>
 
             <input
-              type="text"
+              type="text_skill"
               placeholder="Add a skill"
               value={extraSkill}
               onChange={(e) => setExtraSkill(e.target.value)}

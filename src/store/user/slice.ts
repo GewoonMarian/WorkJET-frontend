@@ -45,6 +45,16 @@ export const userSlice = createSlice({
     profileUpdated: (state, action) => {
       state.profile = action.payload;
     },
+    // deleteSkill: (state, action) => {
+    //   state.profile.skills = state.profile?.skills.filter(
+    //     (skill: { name: string; id: number }) => skill.id !== action.payload
+    //   );
+    // },
+    // deleteProject: (state, action) => {
+    //   state.profile.projects = state.profile.projects.filter(
+    //     (project) => project.id !== action.payload
+    //   );
+    // },
   },
 });
 

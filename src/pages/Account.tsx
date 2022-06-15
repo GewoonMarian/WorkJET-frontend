@@ -2,13 +2,23 @@ import { Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { selectUserProfile, selectToken } from "../store/user/selectors";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import {
+  deleteAccount,
+  deleteOneCertif,
+  deleteOneProject,
+  deleteOneSkill,
+} from "../store/user/actions";
+import { RiDeleteBin2Fill } from "react-icons/ri";
 
 import { useEffect } from "react";
+import { AppDispatch } from "../store";
 
 export default function Account() {
   const user = useSelector(selectUserProfile);
   const token = useSelector(selectToken);
   const navigate = useNavigate();
+  const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
     if (token === null) {
@@ -109,6 +119,16 @@ export default function Account() {
                       {user.isAvailable ? "Yes" : "No"}
                     </p>
                   </p>
+                  <>
+                    {" "}
+                    <button
+                      type="button"
+                      className="btn btn-danger"
+                      onClick={() => dispatch(deleteAccount(user.id))}
+                    >
+                      <RiDeleteBin2Fill size={20} />
+                    </button>
+                  </>
                 </li>
 
                 <img
@@ -294,6 +314,16 @@ export default function Account() {
                           </a>
                         </h5>
                       </h3>
+                      <>
+                        {" "}
+                        <button
+                          type="button"
+                          className="btn btn-danger"
+                          onClick={() => dispatch(deleteOneProject(project.id))}
+                        >
+                          <RiDeleteBin2Fill size={20} />
+                        </button>
+                      </>
                     </div>
                   ))
                 : ""}
@@ -339,6 +369,18 @@ export default function Account() {
                           Description<h5>{certification.date}</h5>
                         </h3>
                       </div>
+                      <>
+                        {" "}
+                        <button
+                          type="button"
+                          className="btn btn-danger"
+                          onClick={() =>
+                            dispatch(deleteOneCertif(certification.id))
+                          }
+                        >
+                          <RiDeleteBin2Fill size={20} />
+                        </button>
+                      </>
                     </div>
                   ))
                 : ""}
@@ -365,20 +407,32 @@ export default function Account() {
               </div>
               {user
                 ? user.skills.map((skill) => (
-                    <div
-                      className="container d-flex flex-row"
-                      style={{
-                        width: "250px",
-                        padding: "15px",
-                        background: "#818d8d",
-                        margin: "20px auto",
-                        boxShadow: "0px 0px 15px rgba(0, 0, 0, 0.22)",
-                      }}
-                    >
-                      <h3 className="col">
-                        Name<h5>{skill.name}</h5>
-                      </h3>
-                    </div>
+                    <>
+                      <div
+                        className="container d-flex flex-row"
+                        style={{
+                          width: "250px",
+                          padding: "15px",
+                          background: "#818d8d",
+                          margin: "20px auto",
+                          boxShadow: "0px 0px 15px rgba(0, 0, 0, 0.22)",
+                        }}
+                      >
+                        <h3 className="col">
+                          Name<h5>{skill.name}</h5>
+                        </h3>
+                        <>
+                          {" "}
+                          <button
+                            type="button"
+                            className="btn btn-danger"
+                            onClick={() => dispatch(deleteOneSkill(skill.id))}
+                          >
+                            <RiDeleteBin2Fill size={20} />
+                          </button>
+                        </>
+                      </div>
+                    </>
                   ))
                 : ""}
             </div>

@@ -11,7 +11,6 @@ import CertificationCard from "../components/UserCard/Certification";
 import SkillCard from "../components/UserCard/skills";
 import { useNavigate } from "react-router-dom";
 import { Card } from "react-bootstrap";
-import Footer from "../components/Footer";
 
 export default function UsersPage() {
   const dispatch: AppDispatch = useDispatch();
@@ -63,18 +62,20 @@ export default function UsersPage() {
                         }}
                         key={user.id}
                       >
-                        <UserCard
-                          id={user.id}
-                          name={user.name}
-                          email={user.email}
-                          location={user.location}
-                          isAvailable={user.isAvailable}
-                          imageUrl={user.imageUrl}
-                          description={user.description}
-                          projects={[]}
-                          certifications={[]}
-                          skills={[]}
-                        />
+                        <div style={{ border: "solid red 2px" }}>
+                          <UserCard
+                            id={user.id}
+                            name={user.name}
+                            email={user.email}
+                            location={user.location}
+                            isAvailable={user.isAvailable}
+                            imageUrl={user.imageUrl}
+                            description={user.description}
+                            projects={[]}
+                            certifications={[]}
+                            skills={[]}
+                          />
+                        </div>
 
                         <div
                           style={{

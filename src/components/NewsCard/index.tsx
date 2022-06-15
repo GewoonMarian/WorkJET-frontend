@@ -24,6 +24,7 @@ export default function NewsCard(props: News) {
       <p>
         <strong>{props.description}</strong>
       </p>
+      <p>{props.date}</p>
     </div>
   );
 }

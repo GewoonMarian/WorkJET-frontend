@@ -7,7 +7,6 @@ import { selectNews } from "../store/news/selectors";
 import { News } from "../types";
 import { selectToken } from "../store/user/selectors";
 import { useNavigate } from "react-router-dom";
-import Footer from "../components/Footer";
 import "./style.css";
 
 export default function UsersPage() {
@@ -57,7 +56,9 @@ export default function UsersPage() {
                             />
                             <div className="card__header-text">
                               <h3 className="card__title">{news.title}</h3>
-                              <span className="card__status">3 hour ago</span>
+                              <span className="card__status">
+                                {news.date} ago
+                              </span>
                             </div>
                           </div>
                           <p className="card__description">
@@ -70,25 +71,19 @@ export default function UsersPage() {
                               title={""}
                               imageUrl={""}
                               description={""}
+                              date={""}
                             />
                           </div>
                         </div>
                       </a>
                     </li>
                   </ul>
-                  {/* <NewsCard
-                    id={news.id}
-                    title={news.title}
-                    imageUrl={news.imageUrl}
-                    description={news.description}
-                    linkUrl={news.linkUrl}
-                  /> */}
                 </>
               );
             })
           : "Loading"}
       </div>
-      <div>{/* <Footer /> */}</div>
+      <div></div>
     </div>
   );
 }

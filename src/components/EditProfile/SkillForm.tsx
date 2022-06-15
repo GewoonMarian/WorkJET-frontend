@@ -24,7 +24,6 @@ export default function SkillForm() {
     const response = await axios.get(
       `http://localhost:4000/skills?limit=${skillsPerPage}&offset=${offset}`
     );
-    console.log("allSkills", response.data);
     setLoading(false);
     setAllSkills(response.data.rows);
   }
@@ -106,8 +105,8 @@ export default function SkillForm() {
             </h4>
 
             <input
-              type="add"
-              name="add"
+              type="text"
+              placeholder="Add a skill"
               value={extraSkill}
               onChange={(e) => setExtraSkill(e.target.value)}
             />

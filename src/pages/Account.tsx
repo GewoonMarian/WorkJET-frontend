@@ -39,6 +39,7 @@ export default function Account() {
                 backgroundColor: "#586c67",
                 boxShadow: "5px 40px 60px #000000",
                 color: "white",
+                borderRadius: "7%",
               }}
             >
               <div
@@ -51,22 +52,74 @@ export default function Account() {
                 key={user.id}
               >
                 <li>
-                  <p>
-                    Name <p>{user.name}</p>
+                  <p
+                    style={{
+                      boxShadow: " 5px 10px 20px #000000",
+                    }}
+                  >
+                    Name{" "}
+                    <p
+                      style={{
+                        border: "solid black 1px",
+                      }}
+                    >
+                      {user.name}
+                    </p>
                   </p>
-                  <p>
-                    Email <p>{user.email}</p>
+                  <p
+                    style={{
+                      boxShadow: " 5px 10px 20px #000000",
+                    }}
+                  >
+                    Email{" "}
+                    <p
+                      style={{
+                        border: "solid black 1px",
+                      }}
+                    >
+                      {user.email}
+                    </p>
                   </p>
-                  <p>
-                    Location <p>{user.location}</p>
+                  <p
+                    style={{
+                      boxShadow: " 5px 10px 20px #000000",
+                    }}
+                  >
+                    Location{" "}
+                    <p
+                      style={{
+                        border: "solid black 1px",
+                      }}
+                    >
+                      {user.location}
+                    </p>
                   </p>
 
-                  <p>
-                    Availability <p>{user.isAvailable ? "yess" : "noo"}</p>
+                  <p
+                    style={{
+                      boxShadow: " 5px 10px 20px #000000",
+                    }}
+                  >
+                    Availability{" "}
+                    <p
+                      style={{
+                        border: "solid black 1px",
+                      }}
+                    >
+                      {user.isAvailable ? "Yes" : "No"}
+                    </p>
                   </p>
                 </li>
 
-                <img src={user.imageUrl} alt={user.name} width="300" />
+                <img
+                  style={{
+                    border: "solid black 2px",
+                    boxShadow: " 5px 40px 60px #000000",
+                  }}
+                  src={user.imageUrl}
+                  alt={user.name}
+                  width="300"
+                />
 
                 <p>
                   <div style={{ padding: "50px" }}>

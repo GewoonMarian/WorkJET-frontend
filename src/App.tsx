@@ -13,7 +13,7 @@ import HomePage from "./pages/HomePage";
 import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import RecruitersPage from "./pages/RecruitersPage";
-import Account from "./pages/Account";
+import Account from "./pages/Account/Account";
 import ApplyForm from "./components/ApplyForm";
 import { AppDispatch } from "./store";
 

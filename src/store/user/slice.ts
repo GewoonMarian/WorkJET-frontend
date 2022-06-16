@@ -45,16 +45,32 @@ export const userSlice = createSlice({
     profileUpdated: (state, action) => {
       state.profile = action.payload;
     },
-    // deleteSkill: (state, action) => {
-    //   state.profile.skills = state.profile?.skills.filter(
-    //     (skill: { name: string; id: number }) => skill.id !== action.payload
-    //   );
-    // },
-    // deleteProject: (state, action) => {
-    //   state.profile.projects = state.profile.projects.filter(
-    //     (project) => project.id !== action.payload
-    //   );
-    // },
+    deleteSkill: (state, action) => {
+      if (!state.profile) return state;
+
+      state.profile.skills = state.profile.skills.filter(
+        (skill: { name: string; id: number }) => skill.id !== action.payload
+      );
+    },
+
+    deleteProject: (state, action) => {
+      if (!state.profile) return state;
+      state.profile.projects = state.profile.projects.filter(
+        (project) => project.id !== action.payload
+      );
+    },
+    deleteCertification: (state, action) => {
+      if (!state.profile) return state;
+      state.profile.certifications = state.profile.certifications.filter(
+        (certification) => certification.id !== action.payload
+      );
+    },
+    deleteUser: (state, action) => {
+      if (!state.users) return state;
+      state.users = state.users.filter(
+        (user: { id: number }) => user.id !== action.payload
+      );
+    },
   },
 });
 
@@ -67,6 +83,10 @@ export const {
   certificationUpdated,
   projectUpdated,
   profileUpdated,
+  deleteSkill,
+  deleteProject,
+  deleteCertification,
+  deleteUser,
 } = userSlice.actions;
 
 export default userSlice.reducer;

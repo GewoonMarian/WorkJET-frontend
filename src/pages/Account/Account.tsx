@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { selectUserProfile, selectToken } from "../store/user/selectors";
+import { selectUserProfile, selectToken } from "../../store/user/selectors";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {
@@ -8,11 +8,11 @@ import {
   deleteOneCertif,
   deleteOneProject,
   deleteOneSkill,
-} from "../store/user/actions";
+} from "../../store/user/actions";
 import { RiDeleteBin2Fill } from "react-icons/ri";
 
 import { useEffect } from "react";
-import { AppDispatch } from "../store";
+import { AppDispatch } from "../../store";
 
 export default function Account() {
   const user = useSelector(selectUserProfile);

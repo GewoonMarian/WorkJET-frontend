@@ -9,6 +9,10 @@ import {
   certificationUpdated,
   projectUpdated,
   profileUpdated,
+  deleteSkill,
+  deleteProject,
+  deleteCertification,
+  deleteUser,
 } from "./slice";
 import { User } from "../../types";
 import { AnyAction, Dispatch, ThunkAction } from "@reduxjs/toolkit";
@@ -345,7 +349,7 @@ export const deleteOneSkill = (
         `http://localhost:4000/skills/delete/${id}`
       );
       console.log("Skill deleted?", response.data);
-      // dispatch(deleteSkill(id));
+      dispatch(deleteSkill(id));
     } catch (e) {
       console.error(e);
     }
@@ -362,7 +366,7 @@ export const deleteOneProject = (
         `http://localhost:4000/projects/delete/${id}`
       );
       console.log("Project deleted?", response.data);
-      // dispatch(deleteProject(id));
+      dispatch(deleteProject(id));
     } catch (e) {
       console.error(e);
     }
@@ -379,7 +383,7 @@ export const deleteOneCertif = (
         `http://localhost:4000/certifications/delete/${id}`
       );
       console.log("Certification deleted?", response.data);
-      // dispatch(deleteCertification(id));
+      dispatch(deleteCertification(id));
     } catch (e) {
       console.error(e);
     }
@@ -396,7 +400,7 @@ export const deleteAccount = (
         `http://localhost:4000/users/delete/${id}`
       );
       console.log("User deleted?", response.data);
-      // dispatch(deleteUser(id));
+      dispatch(deleteUser(id));
     } catch (e) {
       console.error(e);
     }

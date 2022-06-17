@@ -94,7 +94,7 @@ export default function UsersPage() {
                                     aria-expanded="false"
                                     aria-controls="collapseExample"
                                   >
-                                    Apply
+                                    Contact
                                   </Button>
                                 </p>
                               ) : (

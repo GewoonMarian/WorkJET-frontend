@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import NewsCard from "../components/NewsCard";
-import { AppDispatch } from "../store";
-import { fetchNews } from "../store/news/actions";
-import { selectNews } from "../store/news/selectors";
-import { News } from "../types";
-import { selectToken } from "../store/user/selectors";
+import NewsCard from "../../components/NewsCard";
+import { AppDispatch } from "../../store";
+import { fetchNews } from "../../store/news/actions";
+import { selectNews } from "../../store/news/selectors";
+import { News } from "../../types";
+import { selectToken } from "../../store/user/selectors";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 

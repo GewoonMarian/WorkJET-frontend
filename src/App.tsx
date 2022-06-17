@@ -9,11 +9,11 @@ import { getUserWithStoredToken } from "./store/user/actions";
 import NavBar from "./components/NavBar";
 
 import UsersPage from "./pages/UserPage";
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/HomePage/HomePage";
 import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import RecruitersPage from "./pages/RecruitersPage";
-import Account from "./pages/Account/Account";
+import Account from "./pages/Account";
 import ApplyForm from "./components/ApplyForm";
 import { AppDispatch } from "./store";
 

@@ -66,10 +66,8 @@ export const userSlice = createSlice({
       );
     },
     deleteUser: (state, action) => {
-      if (!state.users) return state;
-      state.users = state.users.filter(
-        (user: { id: number }) => user.id !== action.payload
-      );
+      if (!state.profile) return state;
+      state.profile = action.payload;
     },
   },
 });

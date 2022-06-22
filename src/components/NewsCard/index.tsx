@@ -8,7 +8,7 @@ export default function NewsCard(props: News) {
         <strong>{props.title}</strong>
       </h1>
 
-      <a href={props.linkUrl}>
+      <a href={props.linkUrl} target="_blank">
         <button
           type="button"
           className="btn btn-outline-info"

@@ -54,14 +54,14 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 # WorkJET
 --------------------------------------
-WorkJET is a small prototipe of a recruiting app where everyone can email everyone.
+WorkJET is a small prototype of a recruiting app where everyone can reach out to everyone.
 
 # Project Motivation 
 
-When looking for a job I often found myself holding back from applying for certain vacancies just because the job description was so demoralising and make me feel I don’t have enough  certificates or enough experience to apply for that position.
-In this project i tryed to keep Job advertising very low and the concept behind is to create a work network and find a job easier.
+When looking for a job, I often found myself holding back from applying for certain vacancies just because the job description was so demoralising and make me feel like I don’t have enough  certificates or enough experience to apply for that position.
+In this project, I tried to keep job advertising very low and the concept behind is to create a work network and find a job easier.
 
-For the future I am planning to add more features to this project and make it more user friendly.
+For the future, I am planning to add more features to this project and make it more user friendly.
 A live chat, Connecting users and give reviews are just a few of the features I am planning to work on.
 
 

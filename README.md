@@ -48,6 +48,10 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 
 
+
+
+
+
 # WorkJET
 --------------------------------------
 WorkJET is a small prototipe of a recruiting app where everyone can email everyone.
@@ -64,5 +68,12 @@ A live chat, Connecting users and give reviews are just a few of the features I 
 # Tech Stack
 
 Front-end
+
 ![image](https://user-images.githubusercontent.com/91064857/175106075-f5a13fb9-0aaf-4d0e-b366-a9ae375aa229.png)
+![image](https://user-images.githubusercontent.com/91064857/175106265-ebe916a3-b8da-4497-8ae1-1e800e75392b.png)
+![image](https://user-images.githubusercontent.com/91064857/175106317-2e02020a-be8a-4b5e-8241-f66eb69fec51.png)
+![image](https://user-images.githubusercontent.com/91064857/175106963-b4adc8f3-6fc8-454d-8e4f-25a68c3b4a78.png)
+
+
+
 

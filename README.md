@@ -44,3 +44,44 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+
+
+
+
+
+
+# WorkJET
+--------------------------------------
+WorkJET is a small prototipe of a recruiting app where everyone can email everyone.
+
+# Project Motivation 
+
+When looking for a job I often found myself holding back from applying for certain vacancies just because the job description was so demoralising and make me feel I don’t have enough  certificates or enough experience to apply for that position.
+In this project i tryed to keep Job advertising very low and the concept behind is to create a work network and find a job easier.
+
+For the future I am planning to add more features to this project and make it more user friendly.
+A live chat, Connecting users and give reviews are just a few of the features I am planning to work on.
+
+
+# Tech Stack
+
+Front-end
+
+![image](https://user-images.githubusercontent.com/91064857/175106075-f5a13fb9-0aaf-4d0e-b366-a9ae375aa229.png)
+![image](https://user-images.githubusercontent.com/91064857/175106265-ebe916a3-b8da-4497-8ae1-1e800e75392b.png)
+![image](https://user-images.githubusercontent.com/91064857/175106317-2e02020a-be8a-4b5e-8241-f66eb69fec51.png)
+<img src="https://user-images.githubusercontent.com/91064857/175106963-b4adc8f3-6fc8-454d-8e4f-25a68c3b4a78.png" width="40" height="40">
+<img src="https://user-images.githubusercontent.com/91064857/175107929-dcd8f28f-b854-45db-870d-9767ad9a9dd5.png" width="30" height="30">
+
+Back-end
+[Link](https://github.com/nextcode1/WorkJET-backend) to server repository
+
+![image](https://user-images.githubusercontent.com/91064857/175108456-feecf660-3066-49d2-be23-8bb0c9d18620.png)
+![image](https://user-images.githubusercontent.com/91064857/175108472-a2e5a80b-ca19-4e03-8ce1-7440e21aea9c.png)
+![image](https://user-images.githubusercontent.com/91064857/175108484-71d86088-4187-4deb-b6fb-331350101e9e.png)
+![image](https://user-images.githubusercontent.com/91064857/175108506-35c64bfc-76e0-4bc6-84d9-f9f676dd5c08.png)
+<img src="https://user-images.githubusercontent.com/91064857/175108622-52ed08ab-7bfd-46f6-bfab-b58814d7874a.png" width="40" height="40">
+
+

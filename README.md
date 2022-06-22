@@ -44,3 +44,25 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+
+
+# WorkJET
+--------------------------------------
+WorkJET is a small prototipe of a recruiting app where everyone can email everyone.
+
+# Project Motivation 
+
+When looking for a job I often found myself holding back from applying for certain vacancies just because the job description was so demoralising and make me feel I don’t have enough  certificates or enough experience to apply for that position.
+In this project i tryed to keep Job advertising very low and the concept behind is to create a work network and find a job easier.
+
+For the future I am planning to add more features to this project and make it more user friendly.
+A live chat, Connecting users and give reviews are just a few of the features I am planning to work on.
+
+
+# Tech Stack
+
+Front-end
+![image](https://user-images.githubusercontent.com/91064857/175106075-f5a13fb9-0aaf-4d0e-b366-a9ae375aa229.png)
+

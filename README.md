@@ -102,6 +102,21 @@ Profile Page
 <img width="1440" alt="Screenshot 2022-06-22 at 20 37 07" src="https://user-images.githubusercontent.com/91064857/175113144-74e4850c-80bf-4d19-9c71-a9f3af53df0e.png">
 
 <img width="1145" alt="Screenshot 2022-06-22 at 20 37 49" src="https://user-images.githubusercontent.com/91064857/175113220-579d8ec0-1797-4073-b5ef-30168e62fcd8.png">
-![Screenshot 2022-06-22 at 20 38 59](https://user-images.githubusercontent.com/91064857/175113259-0cd10fbf-4593-43ef-8b6f-383e2a206f2c.png)
+
+<img width="1440" alt="Screenshot 2022-06-22 at 20 38 59" src="https://user-images.githubusercontent.com/91064857/175113564-cfb5803f-7919-402d-911b-ccc147969133.png">
+
+Update profile and all its content 
+
+<img width="1440" alt="Screenshot 2022-06-22 at 20 39 11" src="https://user-images.githubusercontent.com/91064857/175113828-bd0c3c04-09fc-42bf-ad73-d355068380da.png">
+
+<img width="1440" alt="Screenshot 2022-06-22 at 20 39 21" src="https://user-images.githubusercontent.com/91064857/175113849-650978ac-7d6c-48bd-9429-4b509e2a5085.png">
+<img width="1440" alt="Screenshot 2022-06-22 at 20 39 34" src="https://user-images.githubusercontent.com/91064857/175113867-ebfce82c-7064-4325-a6c9-4704bfb85ce3.png">
+<img width="1440" alt="Screenshot 2022-06-22 at 20 40 00" src="https://user-images.githubusercontent.com/91064857/175113890-a0c796dc-ae63-4415-b3ae-f02681203851.png">
+
+Send Email Form
+<img width="1440" alt="Screenshot 2022-06-22 at 20 40 15" src="https://user-images.githubusercontent.com/91064857/175113940-22960676-5c45-44a5-9644-a1f1638ede69.png">
 
 
+LogIn and SignUp
+<img width="1440" alt="Screenshot 2022-06-22 at 20 35 16" src="https://user-images.githubusercontent.com/91064857/175114025-8e4013d9-57cc-4228-9f4c-06b27df2b8d0.png">
+<img width="1440" alt="Screenshot 2022-06-22 at 20 35 54" src="https://user-images.githubusercontent.com/91064857/175114050-afc5a6a9-b3f3-4693-8131-06b8b298a7ee.png">

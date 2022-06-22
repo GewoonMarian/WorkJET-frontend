@@ -91,3 +91,17 @@ Home Page
 <img width="1440" alt="Screenshot 2022-06-22 at 20 36 09" src="https://user-images.githubusercontent.com/91064857/175112681-b5624664-c837-4f48-9682-5e8568f20f5d.png">
 
 
+Developers Page
+<img width="1440" alt="Screenshot 2022-06-22 at 20 36 28" src="https://user-images.githubusercontent.com/91064857/175112895-318466ea-8f15-4342-96b1-da5013a846a3.png">
+<img width="1440" alt="Screenshot 2022-06-22 at 20 36 39" src="https://user-images.githubusercontent.com/91064857/175113329-0194c59f-9dea-410e-a6c9-689855ced7aa.png">
+
+Recruiters Page
+<img width="1440" alt="Screenshot 2022-06-22 at 20 36 54" src="https://user-images.githubusercontent.com/91064857/175112966-87389fe2-47a8-45d2-9c8d-651a35915398.png">
+
+Profile Page
+<img width="1440" alt="Screenshot 2022-06-22 at 20 37 07" src="https://user-images.githubusercontent.com/91064857/175113144-74e4850c-80bf-4d19-9c71-a9f3af53df0e.png">
+
+<img width="1145" alt="Screenshot 2022-06-22 at 20 37 49" src="https://user-images.githubusercontent.com/91064857/175113220-579d8ec0-1797-4073-b5ef-30168e62fcd8.png">
+![Screenshot 2022-06-22 at 20 38 59](https://user-images.githubusercontent.com/91064857/175113259-0cd10fbf-4593-43ef-8b6f-383e2a206f2c.png)
+
+
